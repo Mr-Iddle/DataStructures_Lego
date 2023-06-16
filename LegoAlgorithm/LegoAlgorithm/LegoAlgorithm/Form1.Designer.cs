@@ -32,11 +32,13 @@
             this.Krys = new System.Windows.Forms.TabPage();
             this.Corvin = new System.Windows.Forms.TabPage();
             this.Arian = new System.Windows.Forms.TabPage();
+            this.Insert = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.Insert);
             this.tabControl1.Controls.Add(this.Krys);
             this.tabControl1.Controls.Add(this.Corvin);
             this.tabControl1.Controls.Add(this.Arian);
@@ -75,6 +77,15 @@
             this.Arian.Text = "Arian";
             this.Arian.UseVisualStyleBackColor = true;
             // 
+            // Insert
+            // 
+            this.Insert.Location = new System.Drawing.Point(4, 25);
+            this.Insert.Name = "Insert";
+            this.Insert.Size = new System.Drawing.Size(787, 415);
+            this.Insert.TabIndex = 3;
+            this.Insert.Text = "Insert";
+            this.Insert.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -95,6 +106,7 @@
         private System.Windows.Forms.TabPage Krys;
         private System.Windows.Forms.TabPage Corvin;
         private System.Windows.Forms.TabPage Arian;
+        private System.Windows.Forms.TabPage Insert;
     }
 }
 
