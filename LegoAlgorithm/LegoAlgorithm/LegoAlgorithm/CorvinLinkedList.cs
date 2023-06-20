@@ -150,22 +150,6 @@ namespace LegoAlgorithm
             Count = 0;
         }
 
-        /* public T[] Quicksort()
-         {
-          *//*   //create Mergesort
-             MyLinkedList<T> collection = new MyLinkedList<T>();
-             Quicksort(collection);
-             return collection;
-             // make it so that it returns array
-             //create sorting*//*
-
-
-         }
-
-         public T[] BubbleSort()
-         {
-
-         }*/
     }
 }
 
