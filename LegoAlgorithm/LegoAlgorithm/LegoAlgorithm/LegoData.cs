@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LegoAlgorithm
 {
-    internal class LegoData
+    public class LegoData
     {
         private int _id;
         private string _name;

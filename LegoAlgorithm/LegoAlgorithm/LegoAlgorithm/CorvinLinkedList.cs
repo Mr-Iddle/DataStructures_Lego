@@ -8,12 +8,12 @@ namespace LegoAlgorithm
 {
     public class Node
     {
-        public string Data { get; set; }
+        public LegoData Lego { get; set; }
         public Node Next { get; set; }
 
-        public Node(string data)
+        public Node(LegoData data)
         {
-            Data = data;
+            Lego = data;
             Next = null;
         }
     }
@@ -30,7 +30,7 @@ namespace LegoAlgorithm
             Count = 0;
         }
 
-        public void AddFirst(string data)
+        public void AddFirst(LegoData data)
         {
             Node newNode = new Node(data);
             if (Head == null)
@@ -46,7 +46,7 @@ namespace LegoAlgorithm
             Count++;
         }
 
-        public void AddLast(string data)
+        public void AddLast(LegoData data)
         {
             Node newNode = new Node(data);
             if (Head == null)
@@ -104,7 +104,7 @@ namespace LegoAlgorithm
             Count--;
         }
 
-        public void Remove(string data)
+        public void Remove(LegoData data)
         {
             if (Head == null)
             {
@@ -112,7 +112,7 @@ namespace LegoAlgorithm
             }
             else if (Head == Tail)
             {
-                if (Head.Data == data)
+                if (Head.Lego.Equals(data))
                 {
                     Head = null;
                     Tail = null;
@@ -121,7 +121,7 @@ namespace LegoAlgorithm
             }
             else
             {
-                if (Head.Data == data)
+                if (Head.Lego.Equals(data))
                 {
                     Head = Head.Next;
                     Count--;
@@ -131,7 +131,7 @@ namespace LegoAlgorithm
                     Node current = Head;
                     while (current.Next != null)
                     {
-                        if (current.Next.Data == data)
+                        if (current.Next.Lego.Equals(data))
                         {
                             current.Next = current.Next.Next;
                             Count--;
