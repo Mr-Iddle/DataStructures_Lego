@@ -119,7 +119,7 @@ namespace LegoAlgorithm
                                 CorvinLinkedList.QuickSortMethodCustom(legoData.ToArray(), 0, CorvinLinkedList.Count - 1);
                             }
                         }
-                        //sort the content of the text box with the quicksort;
+                        
                     }
 
 
