@@ -185,6 +185,64 @@ namespace LegoAlgorithm
             }
         }
 
+        //make  bubble sort method
+        public void BubbleSortMethodCustom<T>(T[] array) where T : IComparable
+        {
+            int n = array.Length;
+            bool swapped;
+            do
+            {
+                swapped = false;
+                for (int i = 1; i < n; i++)
+                {
+                    if (array[i - 1].CompareTo(array[i]) > 0)
+                    {
+                        T temp = array[i - 1];
+                        array[i - 1] = array[i];
+                        array[i] = temp;
+                        swapped = true;
+                    }
+                }
+            } while (swapped == true);
+        }
+
+        //create linear search method
+        public int LinearSearchMethodCustom<T>(T[] array, T value) where T : IComparable
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Equals(value))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        //create binary search method
+        public int BinarySearchMethodCustom<T>(T[] array, T value) where T : IComparable
+        {
+            int min = 0;
+            int max = array.Length - 1;
+            while (min <= max)
+            {
+                int mid = (min + max) / 2;
+                if (array[mid].Equals(value))
+                {
+                    return mid;
+                }
+                else if (array[mid].CompareTo(value) < 0)
+                {
+                    min = mid + 1;
+                }
+                else
+                {
+                    max = mid - 1;
+                }
+            }
+            return -1;
+        }
+
     }
 }
 

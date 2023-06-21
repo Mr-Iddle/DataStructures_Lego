@@ -32,6 +32,7 @@
             this.import_bttn = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.sort_bttn = new System.Windows.Forms.Button();
+            this.bubble_radio = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // result_TB
@@ -73,11 +74,23 @@
             this.sort_bttn.UseVisualStyleBackColor = true;
             this.sort_bttn.Click += new System.EventHandler(this.sort_bttn_Click);
             // 
+            // bubble_radio
+            // 
+            this.bubble_radio.AutoSize = true;
+            this.bubble_radio.Location = new System.Drawing.Point(85, 164);
+            this.bubble_radio.Name = "bubble_radio";
+            this.bubble_radio.Size = new System.Drawing.Size(137, 20);
+            this.bubble_radio.TabIndex = 4;
+            this.bubble_radio.TabStop = true;
+            this.bubble_radio.Text = "bubble_sort_radio";
+            this.bubble_radio.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bubble_radio);
             this.Controls.Add(this.sort_bttn);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.import_bttn);
@@ -96,6 +109,7 @@
         private System.Windows.Forms.Button import_bttn;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button sort_bttn;
+        private System.Windows.Forms.RadioButton bubble_radio;
     }
 }
 

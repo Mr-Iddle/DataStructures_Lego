@@ -49,5 +49,16 @@ namespace LegoAlgorithm
         {
             return "Id: " + _id + " Name: " + _name + " Rgb: " + _rgb + " Transparency: " + _transparency;
         }
+
+        //create a toArray function
+        public string[] ToArray()
+        {
+            string[] array = new string[4];
+            array[0] = _id.ToString();
+            array[1] = _name;
+            array[2] = _rgb;
+            array[3] = _transparency;
+            return array;
+        }
     }
 }
