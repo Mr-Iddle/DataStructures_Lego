@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LegoAlgorithm
 {
-    internal class QuickSort
+    public class QuickSort
     {
         //create QuickSort method
         public static void QuickSortMethodCustom<T>(T[] array, int left, int right) where T : IComparable

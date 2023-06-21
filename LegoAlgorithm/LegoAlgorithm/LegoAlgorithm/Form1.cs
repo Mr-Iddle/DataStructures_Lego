@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace LegoAlgorithm
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,19 +40,43 @@ namespace LegoAlgorithm
                     {
                         //ignores fist line
                         bool firtstline = true;
-                        MyLinkedList<T> CorvinLinkedList = new MyLinkedList<T>();
-                        while(!sr.EndOfStream)
+                        MyLinkedList CorvinLinkedList = new MyLinkedList();
+                       
+
+                       
+                        while (!sr.EndOfStream)
                         {
                             //read line
                             string line = sr.ReadLine();
                             //split line
                             string[] values = line.Split(',');
-                            //create new lego data
-                            LegoData legoData = new LegoData(int.Parse(values[0]), values[1], values[2], values[3]);
-                            //add to linked list
-                            CorvinLinkedList.AddLast(legoData);
-                            //add to listbox
-                            result_TB.Text += legoData;
+                            if (firtstline)
+                            {
+                                foreach(string s in values)
+                                {
+                                    result_TB.Text += s + "\t";
+                                }
+                                result_TB.Text += "\n";
+                                firtstline = false;
+                            }
+                            else
+                            { 
+                                int id = int.Parse(values[0]);
+                                string name = values[1];
+                                string rgb = values[2];
+                                string transparency = values[3];
+                                //create new lego data
+                                LegoData legoData = new LegoData(id, name, rgb, transparency);
+                                //add to linked list
+                                CorvinLinkedList.AddLast(legoData);
+                                //add to listbox
+                                foreach (string s in values)
+                                {
+                                    result_TB.Text += s + "\t";
+                                }
+                                result_TB.Text += "\n";
+                            }
+                            
                         }
                     }
                 }catch(Exception ex)
@@ -58,6 +84,21 @@ namespace LegoAlgorithm
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void sort_bttn_Click(object sender, EventArgs e)
+        {
+            MyLinkedList myLinkedList = new MyLinkedList();
+            var watch = Stopwatch.StartNew();
+
+            if(radioButton1.Checked)
+            {
+                //sort the content of the text box with QuickSort
+                string[] lines = result_TB.Text.Split('\n');
+                myLinkedList.QuickSortMethodCustom(lines, 0, lines.Length - 1);
+            }
+            watch.Stop();
+            Console.WriteLine($"Execution Time: {watch.Elapsed} s");
         }
     }
 }
