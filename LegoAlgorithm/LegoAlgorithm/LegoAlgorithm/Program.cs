@@ -26,6 +26,8 @@ namespace LegoAlgorithm
             myList.Add(6);
             myList.Add(7);
 
+            myList.LinearSearch(10, 0, 6);
+
             myList.BubbleSort(0, 6);
             Console.WriteLine(myList.ToString());
             myList.Clear();

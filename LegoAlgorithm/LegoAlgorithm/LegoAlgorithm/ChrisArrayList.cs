@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 
 namespace LegoAlgorithm
@@ -164,6 +165,62 @@ namespace LegoAlgorithm
             _items[end] = swap2;
 
             return i + 1;
+        }
+
+        public bool LinearSearch(T value, int startIndex, int endIndex)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            OutOfRangeIndex(startIndex);
+            OutOfRangeIndex(endIndex);
+
+            for (var i = startIndex; i < endIndex; i++)
+            {
+                if (EqualityComparer<T>.Default.Equals(_items[i], value))
+                {
+                    stopWatch.Stop();
+                    Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and found the ITEM");
+                    return true;
+                }
+
+            }
+            stopWatch.Stop();
+            Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
+            return false;
+        }
+
+        public bool BinarySearch(T value, int startIndex, int endIndex, IComparer<T> comparer = null)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            OutOfRangeIndex(startIndex);
+            OutOfRangeIndex(endIndex);
+
+            if (comparer == null) comparer = Comparer<T>.Default;
+
+            while (startIndex <= endIndex)
+            {
+                var middleIndex = startIndex + (endIndex - startIndex) / 2;
+                var compareResult = comparer.Compare(_items[middleIndex], value);
+
+                if (compareResult == 0)
+                {
+                    stopWatch.Stop();
+                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and did find the ITEM");
+                    return true;
+                }
+
+                if (compareResult < 0)
+                {
+                    startIndex = middleIndex + 1;
+                }
+                else
+                {
+                    endIndex = middleIndex - 1;
+                }
+            }
+
+            stopWatch.Start();
+            Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
+            return false;
         }
     }
 }
