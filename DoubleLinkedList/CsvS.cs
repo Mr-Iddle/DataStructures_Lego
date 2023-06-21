@@ -22,9 +22,10 @@ public class CsvS
             while ((line = reader.ReadLine()) != null)
             {
                 string[] fields = line.Split(','); //check here
-                foreach (string field in fields)
+                if(fields.Length>=2)
                 {
-                    dll.AddLastNode(field.Trim());
+                    string fieldValue = fields[1].Trim();
+                    dll.AddLastNode(fieldValue);
                 }
             }
         }

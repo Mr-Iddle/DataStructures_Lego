@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace DoubleLinkedList;
 
 /*
@@ -6,7 +8,7 @@ namespace DoubleLinkedList;
  *
  * Visualization
  *
- * |NULL| data | next | <----> prev | data | next <----> |prev | data | NULL
+ * |NULL| data | next | <----> prev | data | next <----> |prev | data | NULL |
      ^
      |
     |HEAD|
@@ -69,29 +71,25 @@ public class DLL
 
     public int binarySearch(string colorBs)
     {
-        if (this.headNode == null)
+        if(headNode== null)
         {
             return -1;
         }
 
-        int st = 0; //start
+        int st = 0;
         int end = this.countNodes - 1;
 
         while (st <= end)
         {
-            int m = (st + end) / 2; //middle
-            Node mNode= getNodeIndex(m); //middle node
+            int m = (st + end) / 2;
+            Node mNode = getNodeIndex(m);
 
-            int compareString =
-                string.Compare(colorBs, mNode.color,
-                    StringComparison.OrdinalIgnoreCase); //.color is from the Node class
-            //Explanation on why StringComparison.OrdinalIgnoreCase is used, so the binary search won't be influenced by
-            //case sensitive strings
+            int comparison = string.Compare(colorBs, mNode.color, StringComparison.OrdinalIgnoreCase);
 
-            if (compareString == 0)
+            if (comparison == 0)
             {
                 return m;
-            }else if (compareString < 0)
+            }else if (comparison < 0)
             {
                 end = m - 1;
             }
@@ -100,7 +98,29 @@ public class DLL
                 st = m + 1;
             }
         }
+        return -1;
+    }
 
+    public int linearSearch(string colorLs)
+    {
+        if (headNode == null)
+        {
+            return -1;
+        }
+
+        Node currNode = headNode;
+        int i = 0;
+
+        while (currNode != null)
+        {
+            if (String.Equals(colorLs, currNode.color, StringComparison.OrdinalIgnoreCase)) ///ignore capital or small letters, treat it as the same
+            {
+                return i;
+            }
+
+            currNode = currNode.nextNode;
+            i++;
+        }
         return -1;
     }
 
@@ -111,7 +131,7 @@ public class DLL
         while (currNode != null)
         {
             Console.WriteLine(currNode.color);
-            currNode = currNode.prevNode;
+            currNode = currNode.nextNode;
         }
     }
 

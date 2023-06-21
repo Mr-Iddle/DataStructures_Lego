@@ -5,7 +5,7 @@ using DoubleLinkedList;
 CsvS csv = new CsvS();
 csv.nodeBuilder("colors.csv");
 
-string searchColor = "Brown";
+string searchColor = "Black";
 int position = csv.binarySearchCsv(searchColor);
 
 if (position != -1)
