@@ -1,0 +1,15 @@
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/bin/Debug/net7.0/DoubleLinkedList
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/bin/Debug/net7.0/DoubleLinkedList.deps.json
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/bin/Debug/net7.0/DoubleLinkedList.runtimeconfig.json
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/bin/Debug/net7.0/DoubleLinkedList.dll
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/bin/Debug/net7.0/DoubleLinkedList.pdb
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.csproj.AssemblyReference.cache
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.GeneratedMSBuildEditorConfig.editorconfig
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.AssemblyInfoInputs.cache
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.AssemblyInfo.cs
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.csproj.CoreCompileInputs.cache
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.dll
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/refint/DoubleLinkedList.dll
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.pdb
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/DoubleLinkedList.genruntimeconfig.cache
+/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/Debug/net7.0/ref/DoubleLinkedList.dll

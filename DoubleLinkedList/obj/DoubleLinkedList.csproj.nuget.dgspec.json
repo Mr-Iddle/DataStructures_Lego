@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/DoubleLinkedList.csproj": {}
+  },
+  "projects": {
+    "/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/DoubleLinkedList.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/DoubleLinkedList.csproj",
+        "projectName": "DoubleLinkedList",
+        "projectPath": "/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/DoubleLinkedList.csproj",
+        "packagesPath": "/Users/arian/.nuget/packages/",
+        "outputPath": "/Users/arian/Desktop/proj62/dsa/dsa/AlgoLego2.0/DoubleLinkedList/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/arian/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
