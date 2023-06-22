@@ -14,9 +14,11 @@ namespace LegoAlgorithm
         [STAThread]
         static void Main()
         {
-            /*Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());*/
+            Application.Run(new Form1());
+
+            /*Test Quicksort
             LinkedListTest<int> list = new LinkedListTest<int>();
             list.AddFirst(1);
             list.AddFirst(22);
@@ -26,7 +28,9 @@ namespace LegoAlgorithm
             list.AddFirst(9);
 
             list.QuickSort(0,5);
-            Console.WriteLine(list.ToString());
+            Console.WriteLine(list.ToString());*/
+
+
 
         }
     }

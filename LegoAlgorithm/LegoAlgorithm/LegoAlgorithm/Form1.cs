@@ -15,6 +15,8 @@ namespace LegoAlgorithm
     public partial class Form1 : Form
     {
         private MyLinkedList CorvinLinkedList = new MyLinkedList();
+        private LinkedListTest<int> _integers;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace LegoAlgorithm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            input_txt.TextChanged += input_txt_TextChanged;
         }
 
         private void import_bttn_Click(object sender, EventArgs e)
@@ -86,47 +88,80 @@ namespace LegoAlgorithm
 
         private void sort_bttn_Click(object sender, EventArgs e)
         {
-            string[] values = result_TB.Text.Split('\n');
+
             var watch = Stopwatch.StartNew();
 
-            if (radioButton1.Checked)
+
+
+
+
+            /* if (radioButton1.Checked)
+             {
+                 using (StreamReader sr = new StreamReader(result_TB.Text))
+                 {
+                     bool firtstline = true;
+                     while (!sr.EndOfStream)
+                     {
+                         //read line
+                         string line = sr.ReadLine();
+                         //split line
+                         string[] result = line.Split(',');
+                         //ignore the first line
+                         foreach (string s in result)
+                         {
+                             if (firtstline)
+                             {
+                                 firtstline = false;
+                             }
+                             else
+                             {
+                                 int id = int.Parse(result[0]);
+                                 string name = result[1];
+                                 string rgb = result[2];
+                                 string transparency = result[3];
+                                 //create new lego data
+                                 LegoData legoData = new LegoData(id, name, rgb, transparency);
+                                 //quicksort the linked list
+                                 CorvinLinkedList.QuickSortMethodCustom(legoData.ToArray(), 0, CorvinLinkedList.Count - 1);
+                             }
+                         }
+
+                     }*/
+
+
+        }
+
+        private void input_txt_TextChanged(object sender, EventArgs e)
+        {
+            string input = input_txt.Text;
+            string[] numberStrings = input.Split(' ');
+
+            _integers = new LinkedListTest<int>();
+
+            foreach (string numberString in numberStrings)
             {
-                using (StreamReader sr = new StreamReader(result_TB.Text))
+                if (int.TryParse(numberString, out int number))
                 {
-                    bool firtstline = true;
-                    while (!sr.EndOfStream)
-                    {
-                        //read line
-                        string line = sr.ReadLine();
-                        //split line
-                        string[] result = line.Split(',');
-                        //ignore the first line
-                        foreach (string s in result)
-                        {
-                            if (firtstline)
-                            {
-                                firtstline = false;
-                            }
-                            else
-                            {
-                                int id = int.Parse(result[0]);
-                                string name = result[1];
-                                string rgb = result[2];
-                                string transparency = result[3];
-                                //create new lego data
-                                LegoData legoData = new LegoData(id, name, rgb, transparency);
-                                //quicksort the linked list
-                                CorvinLinkedList.QuickSortMethodCustom(legoData.ToArray(), 0, CorvinLinkedList.Count - 1);
-                            }
-                        }
-                        
-                    }
-
-
+                    _integers.AddFirst(number);
                 }
-                watch.Stop();
-                Console.WriteLine($"Execution Time: {watch.Elapsed} s");
+                else
+                {
+                    result_TB.Text = "Error";
+                }
+
             }
+            DisplayTheIntegers();
+        }
+        private void DisplayTheIntegers()
+        {
+            result_TB.Clear();
+            for (var i = 0; i < _integers.Count; i++)
+            {
+                var item = _integers.GetNodeAt(i);
+                result_TB.AppendText(item.ToString() + "\n");
+            }
+
         }
     }
 }
+
