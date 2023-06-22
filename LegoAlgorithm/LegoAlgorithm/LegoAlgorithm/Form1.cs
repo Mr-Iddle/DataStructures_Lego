@@ -161,7 +161,7 @@ namespace LegoAlgorithm
             result_TB.Clear();
             for (int i = 0; i < value.Count; i++)
             {
-                var item = value.GetNodeAt(i);
+                var item = value.GetNodeAt(i).Value;
                 result_TB.AppendText(item.ToString() + "\n");
                 //result_TB.Text += item.ToString() + "\n";
             }
