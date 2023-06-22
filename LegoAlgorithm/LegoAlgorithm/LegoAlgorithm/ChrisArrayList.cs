@@ -217,9 +217,8 @@ namespace LegoAlgorithm
                     endIndex = middleIndex - 1;
                 }
             }
-
             stopWatch.Start();
-            Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
+            Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
             return false;
         }
     }

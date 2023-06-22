@@ -26,9 +26,10 @@ namespace LegoAlgorithm
             myList.Add(6);
             myList.Add(7);
 
-            myList.LinearSearch(10, 0, 6);
+            
+            myList.BinarySearch(7, 0, 8);
 
-            myList.BubbleSort(0, 6);
+            myList.BubbleSort(0, 8);
             Console.WriteLine(myList.ToString());
             myList.Clear();
             Console.WriteLine(myList.ToString());
@@ -42,7 +43,7 @@ namespace LegoAlgorithm
             myList.Add(5);
             myList.Add(6);
             myList.Add(7);
-            myList.QuickSort(0, 6);
+            myList.QuickSort(0, 8);
             Console.WriteLine(myList.ToString());
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
