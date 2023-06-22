@@ -30,7 +30,7 @@
         {
             this.result_TB = new System.Windows.Forms.RichTextBox();
             this.import_bttn = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.quicksort_radio = new System.Windows.Forms.RadioButton();
             this.sort_bttn = new System.Windows.Forms.Button();
             this.bubble_radio = new System.Windows.Forms.RadioButton();
             this.linear_bttn = new System.Windows.Forms.RadioButton();
@@ -56,16 +56,16 @@
             this.import_bttn.UseVisualStyleBackColor = true;
             this.import_bttn.Click += new System.EventHandler(this.import_bttn_Click);
             // 
-            // radioButton1
+            // quicksort_radio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(36, 273);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(120, 20);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "quicksort_radio";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.quicksort_radio.AutoSize = true;
+            this.quicksort_radio.Location = new System.Drawing.Point(36, 273);
+            this.quicksort_radio.Name = "quicksort_radio";
+            this.quicksort_radio.Size = new System.Drawing.Size(120, 20);
+            this.quicksort_radio.TabIndex = 2;
+            this.quicksort_radio.TabStop = true;
+            this.quicksort_radio.Text = "quicksort_radio";
+            this.quicksort_radio.UseVisualStyleBackColor = true;
             // 
             // sort_bttn
             // 
@@ -128,7 +128,7 @@
             this.Controls.Add(this.linear_bttn);
             this.Controls.Add(this.bubble_radio);
             this.Controls.Add(this.sort_bttn);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.quicksort_radio);
             this.Controls.Add(this.import_bttn);
             this.Controls.Add(this.result_TB);
             this.Name = "Form1";
@@ -143,7 +143,7 @@
 
         private System.Windows.Forms.RichTextBox result_TB;
         private System.Windows.Forms.Button import_bttn;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton quicksort_radio;
         private System.Windows.Forms.Button sort_bttn;
         private System.Windows.Forms.RadioButton bubble_radio;
         private System.Windows.Forms.RadioButton linear_bttn;

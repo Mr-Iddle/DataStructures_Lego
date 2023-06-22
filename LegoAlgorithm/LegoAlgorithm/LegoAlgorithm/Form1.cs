@@ -15,7 +15,7 @@ namespace LegoAlgorithm
     public partial class Form1 : Form
     {
         private MyLinkedList CorvinLinkedList = new MyLinkedList();
-        private LinkedListTest<int> _integers;
+        private LinkedListTest<int> value;
 
         public Form1()
         {
@@ -91,6 +91,10 @@ namespace LegoAlgorithm
 
             var watch = Stopwatch.StartNew();
 
+            if (quicksort_radio.Checked)
+            {
+                value.QuickSort(0, value.Count-1);
+            }
 
 
 
@@ -136,13 +140,13 @@ namespace LegoAlgorithm
             string input = input_txt.Text;
             string[] numberStrings = input.Split(' ');
 
-            _integers = new LinkedListTest<int>();
+            value = new LinkedListTest<int>();
 
             foreach (string numberString in numberStrings)
             {
                 if (int.TryParse(numberString, out int number))
                 {
-                    _integers.AddFirst(number);
+                    value.AddFirst(number);
                 }
                 else
                 {
@@ -155,10 +159,11 @@ namespace LegoAlgorithm
         private void DisplayTheIntegers()
         {
             result_TB.Clear();
-            for (var i = 0; i < _integers.Count; i++)
+            for (int i = 0; i < value.Count; i++)
             {
-                var item = _integers.GetNodeAt(i);
+                var item = value.GetNodeAt(i);
                 result_TB.AppendText(item.ToString() + "\n");
+                //result_TB.Text += item.ToString() + "\n";
             }
 
         }
