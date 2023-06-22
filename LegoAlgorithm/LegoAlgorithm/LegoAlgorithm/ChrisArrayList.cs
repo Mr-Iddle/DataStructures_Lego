@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 
 namespace LegoAlgorithm
@@ -43,7 +42,7 @@ namespace LegoAlgorithm
         public bool Remove(T value)
         {
             var index = IndexOf(value);
-            if(index == -1) return false; 
+            if (index == -1) return false;
 
             RemoveAt(index);
             return true;
@@ -64,7 +63,7 @@ namespace LegoAlgorithm
             if (Count == _items.Length)
             {
                 T[] newArray = new T[_items.Length * 2];
-                Array.Copy(_items, 0, newArray, 0,  Count);
+                Array.Copy(_items, 0, newArray, 0, Count);
                 _items = newArray;
             }
         }
@@ -87,6 +86,7 @@ namespace LegoAlgorithm
                 if (EqualityComparer<T>.Default.Equals(_items[i], value))
                     return i;
             }
+
             return -1;
         }
 
@@ -99,6 +99,7 @@ namespace LegoAlgorithm
                 sb.Append(_items[i]);
                 if (i < Count - 1) sb.Append(", ");
             }
+
             return sb.ToString();
         }
 
@@ -111,13 +112,13 @@ namespace LegoAlgorithm
             if (comparer == null) comparer = Comparer<T>.Default;
 
             for (var i = startIndex; i < endIndex; i++)
-                for ( var j = startIndex;  j < endIndex - i + startIndex; j++)
-                    if (comparer.Compare(_items[j], _items[j + 1]) > 0)
-                    {
-                        var swap = _items[j];
-                        _items[j] = _items[j + 1];
-                        _items[j + 1] = swap;
-                    }
+            for (var j = startIndex; j < endIndex - i + startIndex; j++)
+                if (comparer.Compare(_items[j], _items[j + 1]) > 0)
+                {
+                    var swap = _items[j];
+                    _items[j] = _items[j + 1];
+                    _items[j + 1] = swap;
+                }
 
             stopWatch.Stop();
             Console.WriteLine($"BubbleSort took: {stopWatch.Elapsed} seconds");
@@ -158,7 +159,7 @@ namespace LegoAlgorithm
                     var swap = _items[i];
                     _items[i] = _items[j];
                     _items[j] = swap;
-                } 
+                }
 
             var swap2 = _items[i + 1];
             _items[i + 1] = _items[end];
@@ -183,6 +184,7 @@ namespace LegoAlgorithm
                 }
 
             }
+
             stopWatch.Stop();
             Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
             return false;
@@ -217,6 +219,7 @@ namespace LegoAlgorithm
                     endIndex = middleIndex - 1;
                 }
             }
+
             stopWatch.Start();
             Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
             return false;
