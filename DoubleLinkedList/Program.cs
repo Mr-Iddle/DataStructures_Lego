@@ -6,19 +6,33 @@ CsvS<string> csv = new CsvS<string>();
 csv.nodeBuilder("colors.csv");
 
 string searchColor = "Black";
-int position = csv.sentinelLinearSearchCsv(searchColor);
+int positionSls = csv.sentinelLinearSearchCsv(searchColor);
+int positionLs = csv.linearSearchCsv(searchColor);
 
-if (position != -1)
+if (positionSls != -1 && positionLs != -1)
 {
-    Console.WriteLine($"Position of '{searchColor}' is {position}");
+    Console.WriteLine($"Position (sentinel linear search) of '{searchColor}' is {positionSls}");
+    Console.WriteLine($"Position (linear search) of '{searchColor}' is {positionLs}");
 }
 else
 {
     Console.WriteLine($"'{searchColor}' not found !");
 }
 
-Console.WriteLine("Traversing fwd:");
+Console.WriteLine("Traversing forward:");
 csv.getDll().trFwd();
 
-Console.WriteLine("Traversing bwd:");
+Console.WriteLine("Traversing backward:");
+csv.getDll().trBwd();
+
+//Quicksort
+csv.getDll().quickSort();
+
+Console.WriteLine("QUICKSORT ! After sorting ALPHABETICALLY:");
+csv.getDll().trFwd();
+
+//Bubblesort
+csv.getDll().bubbleSort();
+
+Console.WriteLine("BUBBLE SORT ! After sorting with Bubble sort ALPHABETICALLY BACKWARDS:");
 csv.getDll().trBwd();

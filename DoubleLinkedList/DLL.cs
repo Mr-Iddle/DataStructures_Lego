@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Drawing;
 
 namespace DoubleLinkedList;
@@ -20,7 +21,7 @@ public class DLL<T>
     /*The double linked list, it has a head pointer pointing to the first node and a tail pointer which is pointing
         at the last node. The count field keeps track of how many nodes are in the list.
     */
-    
+
     public Node<T> headNode;
     public Node<T> tailNode;
     public int countNodes;
@@ -48,7 +49,7 @@ public class DLL<T>
 
         this.countNodes++;
     }
-    
+
     //Get the node index
     private Node<T> getNodeIndex(int i)
     {
@@ -86,12 +87,12 @@ public class DLL<T>
         //We iterate through the csv until the value is found
         while (!EqualityComparer<T>.Default.Equals(currNode.color, colorSLs))
         {
-            currNode=currNode.nextNode;
+            currNode = currNode.nextNode;
             i++;
         }
 
         //If the current node is the sentinel then we didn't found the color name we looking for
-        if(currNode == sentiNode)
+        if (currNode == sentiNode)
         {
             return -1;
         }
@@ -111,7 +112,7 @@ public class DLL<T>
 
         while (currNode != null)
         {
-            if (EqualityComparer<T>.Default.Equals(colorLs,currNode.color)) ///ignore capital or small letters, treat it as the same
+            if (EqualityComparer<T>.Default.Equals(colorLs, currNode.color)) ///ignore capital or small letters, treat it as the same
             {
                 return i;
             }
@@ -120,6 +121,101 @@ public class DLL<T>
             i++;
         }
         return -1;
+    }
+
+
+    //Quicksort
+    private void moveColors(Node<T> nOne, Node<T> nTwo)
+    {
+        T tempNodeOne = nOne.color;
+        nOne.color = nTwo.color;
+        nTwo.color = tempNodeOne;
+
+        //swap colors
+    }
+
+    private void qSRec(Node<T> l, Node<T> r)
+    {
+        if (l == null || r == null || l == r || l == r.nextNode)
+        {
+            return;
+        }
+
+        Node<T> p = delimitN(l, r); //pivot
+        qSRec(l, p.prevNode);
+        qSRec(p.nextNode, r);
+
+    }
+
+    private Node<T> delimitN(Node<T> l, Node<T> r) //partition nodes
+    {
+        Node<T> i = l.prevNode;
+        for(Node<T> j=l; j != r; j = j.nextNode)
+        {
+            if(Comparer<T>.Default.Compare(j.color,r.color) <= 0)
+            {
+                if(i==null)
+                {
+                    i = l;
+                }
+                else
+                {
+                    i = i.nextNode;
+                }
+
+                moveColors(i, j);
+            }
+        }
+
+        if(i == null)
+        {
+            i = l;
+        }
+        else
+        {
+            i = i.nextNode;
+        }
+
+        moveColors(i, r);
+        return i;
+    }
+
+    public void quickSort()
+    {
+        qSRec(headNode, tailNode);
+    }
+
+
+    //Bubblesort
+    public void bubbleSort()
+    {
+        if(headNode == null || headNode.nextNode == null)
+        {
+            return;
+        }
+
+        bool isSwap;
+        Node<T> currN;
+        Node<T> lSortN = null;
+
+        do
+        {
+            isSwap = false;
+            currN = headNode;
+
+            while (currN.nextNode != lSortN)
+            {
+                if (Comparer<T>.Default.Compare(currN.color, currN.nextNode.color) > 0)
+                {
+                    moveColors(currN, currN.nextNode);
+                    isSwap = true;
+                }
+                currN = currN.nextNode;
+            }
+            lSortN = currN;
+        }
+        while (isSwap);
+
     }
 
     public void trFwd() //Traversing Forward

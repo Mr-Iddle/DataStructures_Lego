@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.ComponentModel;
 
 namespace DoubleLinkedList;
@@ -20,6 +21,8 @@ public class CsvS<T>
     {
         using (StreamReader reader = new StreamReader(pathCsv))
         {
+            reader.ReadLine();
+
             string line;
             while ((line = reader.ReadLine()) != null)
             {
@@ -42,6 +45,8 @@ public class CsvS<T>
     {
         return dll.linearSearch(colorLs);
     }
+
+
 
     private static T tConverter<T>(string value)
     {
