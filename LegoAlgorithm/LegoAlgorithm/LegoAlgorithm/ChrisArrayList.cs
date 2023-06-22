@@ -86,7 +86,6 @@ namespace LegoAlgorithm
                 if (EqualityComparer<T>.Default.Equals(_items[i], value))
                     return i;
             }
-
             return -1;
         }
 
@@ -99,7 +98,6 @@ namespace LegoAlgorithm
                 sb.Append(_items[i]);
                 if (i < Count - 1) sb.Append(", ");
             }
-
             return sb.ToString();
         }
 
@@ -119,7 +117,6 @@ namespace LegoAlgorithm
                     _items[j] = _items[j + 1];
                     _items[j + 1] = swap;
                 }
-
             stopWatch.Stop();
             Console.WriteLine($"BubbleSort took: {stopWatch.Elapsed} seconds");
         }
@@ -182,9 +179,7 @@ namespace LegoAlgorithm
                     Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and found the ITEM");
                     return true;
                 }
-
             }
-
             stopWatch.Stop();
             Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
             return false;
@@ -219,7 +214,6 @@ namespace LegoAlgorithm
                     endIndex = middleIndex - 1;
                 }
             }
-
             stopWatch.Start();
             Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
             return false;
