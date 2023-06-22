@@ -1,15 +1,17 @@
+using System.ComponentModel;
+
 namespace DoubleLinkedList;
 
-public class CsvS
+public class CsvS<T>
 {
-    private DLL dll;
+    private DLL<T> dll;
 
     public CsvS()
     {
-        this.dll = new DLL();
+        this.dll = new DLL<T>();
     }
 
-    public DLL getDll()
+    public DLL<T> getDll()
     {
         return this.dll;
     }
@@ -24,20 +26,26 @@ public class CsvS
                 string[] fields = line.Split(','); //check here
                 if(fields.Length>=2)
                 {
-                    string fieldValue = fields[1].Trim();
+                    T fieldValue = tConverter<T>(fields[1].Trim());
                     dll.AddLastNode(fieldValue);
                 }
             }
         }
     }
 
-    public int sentinelLinearSearchCsv(string colorSLs)
+    public int sentinelLinearSearchCsv(T colorSLs)
     {
         return dll.sentinelLinearSearch(colorSLs);
     }
 
-    public int linearSearchCsv(string colorLs)
+    public int linearSearchCsv(T colorLs)
     {
         return dll.linearSearch(colorLs);
+    }
+
+    private static T tConverter<T>(string value)
+    {
+        TypeConverter conv = TypeDescriptor.GetConverter(typeof(T));
+        return (T)conv.ConvertFromString(value);
     }
 }

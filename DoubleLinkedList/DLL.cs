@@ -15,14 +15,14 @@ namespace DoubleLinkedList;
  */
 
 
-public class DLL
+public class DLL<T>
 {
     /*The double linked list, it has a head pointer pointing to the first node and a tail pointer which is pointing
         at the last node. The count field keeps track of how many nodes are in the list.
     */
     
-    public Node headNode;
-    public Node tailNode;
+    public Node<T> headNode;
+    public Node<T> tailNode;
     public int countNodes;
 
     public int CountNodes
@@ -30,9 +30,9 @@ public class DLL
         get { return this.countNodes; }
     }
 
-    public void AddLastNode(string color)
+    public void AddLastNode(T color)
     {
-        Node newNode = new Node(color);
+        Node<T> newNode = new Node<T>(color);
 
         if (this.headNode == null)
         {
@@ -50,14 +50,14 @@ public class DLL
     }
     
     //Get the node index
-    private Node getNodeIndex(int i)
+    private Node<T> getNodeIndex(int i)
     {
         if (i < 0 || i >= this.countNodes)
         {
             throw new IndexOutOfRangeException();
         }
 
-        Node currNode = this.headNode;
+        Node<T> currNode = this.headNode;
         int currI = 0;
 
         while (currI < i)
@@ -69,7 +69,7 @@ public class DLL
         return currNode;
     }
 
-    public int sentinelLinearSearch(string colorSLs)
+    public int sentinelLinearSearch(T colorSLs)
     {
         if (headNode == null)
         {
@@ -77,14 +77,14 @@ public class DLL
         }
 
         //Sentinel node as next node
-        Node sentiNode = new Node(colorSLs);
+        Node<T> sentiNode = new Node<T>(colorSLs);
         sentiNode.nextNode = headNode;
 
-        Node currNode = headNode;
+        Node<T> currNode = headNode;
         int i = 0;
 
         //We iterate through the csv until the value is found
-        while(!string.Equals(currNode.color, colorSLs, StringComparison.OrdinalIgnoreCase))
+        while (!EqualityComparer<T>.Default.Equals(currNode.color, colorSLs))
         {
             currNode=currNode.nextNode;
             i++;
@@ -99,19 +99,19 @@ public class DLL
         return i;
     }
 
-    public int linearSearch(string colorLs)
+    public int linearSearch(T colorLs)
     {
         if (headNode == null)
         {
             return -1;
         }
 
-        Node currNode = headNode;
+        Node<T> currNode = headNode;
         int i = 0;
 
         while (currNode != null)
         {
-            if (String.Equals(colorLs, currNode.color, StringComparison.OrdinalIgnoreCase)) ///ignore capital or small letters, treat it as the same
+            if (EqualityComparer<T>.Default.Equals(colorLs,currNode.color)) ///ignore capital or small letters, treat it as the same
             {
                 return i;
             }
@@ -124,7 +124,7 @@ public class DLL
 
     public void trFwd() //Traversing Forward
     {
-        Node currNode = this.headNode;
+        Node<T> currNode = this.headNode;
 
         while (currNode != null)
         {
@@ -135,7 +135,7 @@ public class DLL
 
     public void trBwd() //Traversing Backwards
     {
-        Node currNode = this.tailNode;
+        Node<T> currNode = this.tailNode;
 
         while (currNode != null)
         {

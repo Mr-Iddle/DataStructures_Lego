@@ -2,7 +2,7 @@
 using System.IO;
 using DoubleLinkedList;
 
-CsvS csv = new CsvS();
+CsvS<string> csv = new CsvS<string>();
 csv.nodeBuilder("colors.csv");
 
 string searchColor = "Black";
