@@ -69,36 +69,34 @@ public class DLL
         return currNode;
     }
 
-    public int binarySearch(string colorBs)
+    public int sentinelLinearSearch(string colorSLs)
     {
-        if(headNode== null)
+        if (headNode == null)
         {
             return -1;
         }
 
-        int st = 0;
-        int end = this.countNodes - 1;
+        //Sentinel node as next node
+        Node sentiNode = new Node(colorSLs);
+        sentiNode.nextNode = headNode;
 
-        while (st <= end)
+        Node currNode = headNode;
+        int i = 0;
+
+        //We iterate through the csv until the value is found
+        while(!string.Equals(currNode.color, colorSLs, StringComparison.OrdinalIgnoreCase))
         {
-            int m = (st + end) / 2;
-            Node mNode = getNodeIndex(m);
-
-            int comparison = string.Compare(colorBs, mNode.color, StringComparison.OrdinalIgnoreCase);
-
-            if (comparison == 0)
-            {
-                return m;
-            }else if (comparison < 0)
-            {
-                end = m - 1;
-            }
-            else
-            {
-                st = m + 1;
-            }
+            currNode=currNode.nextNode;
+            i++;
         }
-        return -1;
+
+        //If the current node is the sentinel then we didn't found the color name we looking for
+        if(currNode == sentiNode)
+        {
+            return -1;
+        }
+
+        return i;
     }
 
     public int linearSearch(string colorLs)

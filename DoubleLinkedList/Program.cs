@@ -6,7 +6,7 @@ CsvS csv = new CsvS();
 csv.nodeBuilder("colors.csv");
 
 string searchColor = "Black";
-int position = csv.binarySearchCsv(searchColor);
+int position = csv.sentinelLinearSearchCsv(searchColor);
 
 if (position != -1)
 {

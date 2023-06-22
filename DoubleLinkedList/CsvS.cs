@@ -31,8 +31,13 @@ public class CsvS
         }
     }
 
-    public int binarySearchCsv(string colorBs)
+    public int sentinelLinearSearchCsv(string colorSLs)
     {
-        return dll.binarySearch(colorBs);
+        return dll.sentinelLinearSearch(colorSLs);
+    }
+
+    public int linearSearchCsv(string colorLs)
+    {
+        return dll.linearSearch(colorLs);
     }
 }
