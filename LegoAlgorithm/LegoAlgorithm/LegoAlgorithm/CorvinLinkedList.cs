@@ -185,7 +185,7 @@ namespace LegoAlgorithm
             }
         }
 
-        //make  bubble sort method
+        //bubble sort method
         public void BubbleSortMethodCustom<T>(T[] array) where T : IComparable
         {
             int n = array.Length;
@@ -206,7 +206,7 @@ namespace LegoAlgorithm
             } while (swapped == true);
         }
 
-        //create linear search method
+        //linear search method
         public int LinearSearchMethodCustom<T>(T[] array, T value) where T : IComparable
         {
             for (int i = 0; i < array.Length; i++)
@@ -242,6 +242,8 @@ namespace LegoAlgorithm
             }
             return -1;
         }
+
+       
 
     }
 }
