@@ -7,7 +7,7 @@ namespace LegoAlgorithm
     public class CsvS<T>
     {
         private ChrisArrayList<T> ArrayList;
-        //CorvinLinkedList<T> LinkedList;
+        //private CorvinLinkedList<T> LinkedList;
         //private DLL<T> dll;
 
 
@@ -54,7 +54,7 @@ namespace LegoAlgorithm
 
 
 
-        private static T tConverter<T>(string value)
+        private static T TConverter<T>(string value)
         {
             TypeConverter conv = TypeDescriptor.GetConverter(typeof(T));
             return (T)conv.ConvertFromString(value);
