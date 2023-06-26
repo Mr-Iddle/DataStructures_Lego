@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LegoAlgorithm
 {
-    public class LegoData
+    public class LegoData<T>
     {
-        private int _id;
-        private string _name;
-        private string _rgb;
-        private string _transparency;
+        private T _id;
+        private T _name;
+        private T _rgb;
+        private T _transparency;
 
-        public LegoData(int id, string name, string rgb, string transparency)
+        public LegoData(T id, T name, T rgb, T transparency)
         {
             _id = id;
             _name = name;
@@ -22,24 +22,24 @@ namespace LegoAlgorithm
         }
 
         //getter and setter
-        public int Id
+        public T Id
         {
             get { return _id; }
             set { _id = value; }
         }
-        public string Name
+        public T Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        public string Rgb
+        public T Rgb
         {
             get { return _rgb; }
             set { _rgb = value; }
         }
 
-        public string Transparency
+        public T Transparency
         {
             get { return _transparency; }
             set { _transparency = value; }
@@ -55,9 +55,9 @@ namespace LegoAlgorithm
         {
             string[] array = new string[4];
             array[0] = _id.ToString();
-            array[1] = _name;
-            array[2] = _rgb;
-            array[3] = _transparency;
+            array[1] = _name.ToString();
+            array[2] = _rgb.ToString();
+            array[3] = _transparency.ToString();
             return array;
         }
     }
