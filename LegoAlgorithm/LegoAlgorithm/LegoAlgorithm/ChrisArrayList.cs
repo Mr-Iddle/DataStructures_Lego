@@ -27,7 +27,7 @@ namespace LegoAlgorithm
         {
             OutOfRangeIndex(index);
             return _items[index];
-            //Console.WriteLine(index);
+            Console.WriteLine(index);
         }
 
         public void InsertAt(int index, T value)
@@ -110,13 +110,13 @@ namespace LegoAlgorithm
             if (comparer == null) comparer = Comparer<T>.Default;
 
             for (var i = startIndex; i < endIndex; i++)
-            for (var j = startIndex; j < endIndex - i + startIndex; j++)
-                if (comparer.Compare(_items[j], _items[j + 1]) > 0)
-                {
-                    var swap = _items[j];
-                    _items[j] = _items[j + 1];
-                    _items[j + 1] = swap;
-                }
+                for (var j = startIndex; j < endIndex - i + startIndex; j++)
+                    if (comparer.Compare(_items[j], _items[j + 1]) > 0)
+                    {
+                        var swap = _items[j];
+                        _items[j] = _items[j + 1];
+                        _items[j + 1] = swap;
+                    }
             stopWatch.Stop();
             Console.WriteLine($"BubbleSort took: {stopWatch.Elapsed} seconds");
         }
