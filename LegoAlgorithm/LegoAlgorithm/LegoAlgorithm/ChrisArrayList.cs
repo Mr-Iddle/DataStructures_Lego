@@ -27,7 +27,7 @@ namespace LegoAlgorithm
         {
             OutOfRangeIndex(index);
             return _items[index];
-            Console.WriteLine(index);
+            //Console.WriteLine(index);
         }
 
         public void InsertAt(int index, T value)
