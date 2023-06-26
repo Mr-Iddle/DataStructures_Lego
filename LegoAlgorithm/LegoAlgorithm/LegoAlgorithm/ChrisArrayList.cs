@@ -201,7 +201,7 @@ namespace LegoAlgorithm
                 if (compareResult == 0)
                 {
                     stopWatch.Stop();
-                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and did find the ITEM");
+                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DID find the item");
                     return true;
                 }
 
@@ -215,7 +215,7 @@ namespace LegoAlgorithm
                 }
             }
             stopWatch.Start();
-            Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
+            Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DIDNT find the item");
             return false;
         }
     }
