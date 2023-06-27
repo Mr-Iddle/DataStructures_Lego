@@ -46,6 +46,10 @@ public class CsvS<T>
         return dll.linearSearch(colorLs);
     }
 
+    public int binarySearch(T colorBs)
+    {
+        return dll.bSearch(colorBs);
+    }
 
 
     private static T tConverter<T>(string value)
