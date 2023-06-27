@@ -4,7 +4,7 @@ using System.IO;
 
 namespace LegoAlgorithm
 {
-    public class CsvS<T>
+    internal class CsvS<T>
     {
         private ChrisArrayList<T> ArrayList;
         //private CorvinLinkedList<T> LinkedList;
@@ -23,7 +23,7 @@ namespace LegoAlgorithm
             return this.dll;
         }*/
 
-        /*public void nodeBuilder(string pathCsv)
+        public void NodeBuilder(string pathCsv)
         {
             using (StreamReader reader = new StreamReader(pathCsv))
             {
@@ -35,12 +35,12 @@ namespace LegoAlgorithm
                     string[] fields = line.Split(','); //check here
                     if (fields.Length >= 2)
                     {
-                        T fieldValue = tConverter<T>(fields[1].Trim());
-                        dll.AddLastNode(fieldValue);
+                        T fieldValue = TConverter<T>(fields[1].Trim());
+                        //dll.AddLastNode(fieldValue);
                     }
                 }
             }
-        }*/
+        }
 
         /*public int sentinelLinearSearchCsv(T colorSLs)
         {
@@ -54,7 +54,7 @@ namespace LegoAlgorithm
 
 
 
-        private static T TConverter<T>(string value)
+        public static T TConverter<T>(string value)
         {
             TypeConverter conv = TypeDescriptor.GetConverter(typeof(T));
             return (T)conv.ConvertFromString(value);

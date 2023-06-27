@@ -31,7 +31,7 @@
             this.arrayListRadio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.linkedListRadio = new System.Windows.Forms.RadioButton();
-            this.importCSVBttn = new System.Windows.Forms.Button();
+            this.importCSVBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -86,14 +86,15 @@
             this.linkedListRadio.Text = "Linked List";
             this.linkedListRadio.UseVisualStyleBackColor = true;
             // 
-            // importCSVBttn
+            // importCSVBtn
             // 
-            this.importCSVBttn.Location = new System.Drawing.Point(13, 549);
-            this.importCSVBttn.Name = "importCSVBttn";
-            this.importCSVBttn.Size = new System.Drawing.Size(118, 36);
-            this.importCSVBttn.TabIndex = 4;
-            this.importCSVBttn.Text = "Import CSV";
-            this.importCSVBttn.UseVisualStyleBackColor = true;
+            this.importCSVBtn.Location = new System.Drawing.Point(28, 549);
+            this.importCSVBtn.Name = "importCSVBtn";
+            this.importCSVBtn.Size = new System.Drawing.Size(118, 36);
+            this.importCSVBtn.TabIndex = 4;
+            this.importCSVBtn.Text = "Import CSV";
+            this.importCSVBtn.UseVisualStyleBackColor = true;
+            this.importCSVBtn.Click += new System.EventHandler(this.ImportCSVBtn_Click);
             // 
             // dataGridView1
             // 
@@ -215,10 +216,10 @@
             this.radioButton9.AutoSize = true;
             this.radioButton9.Location = new System.Drawing.Point(109, 431);
             this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(103, 20);
+            this.radioButton9.Size = new System.Drawing.Size(98, 20);
             this.radioButton9.TabIndex = 16;
             this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "radioButton9";
+            this.radioButton9.Text = "Bubble Sort";
             this.radioButton9.UseVisualStyleBackColor = true;
             // 
             // radioButton10
@@ -226,10 +227,10 @@
             this.radioButton10.AutoSize = true;
             this.radioButton10.Location = new System.Drawing.Point(81, 105);
             this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(110, 20);
+            this.radioButton10.Size = new System.Drawing.Size(89, 20);
             this.radioButton10.TabIndex = 17;
             this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "radioButton10";
+            this.radioButton10.Text = "Quick Sort";
             this.radioButton10.UseVisualStyleBackColor = true;
             // 
             // radioButton11
@@ -237,10 +238,10 @@
             this.radioButton11.AutoSize = true;
             this.radioButton11.Location = new System.Drawing.Point(271, 430);
             this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(110, 20);
+            this.radioButton11.Size = new System.Drawing.Size(111, 20);
             this.radioButton11.TabIndex = 18;
             this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "radioButton11";
+            this.radioButton11.Text = "Linear Search";
             this.radioButton11.UseVisualStyleBackColor = true;
             // 
             // radioButton12
@@ -248,10 +249,10 @@
             this.radioButton12.AutoSize = true;
             this.radioButton12.Location = new System.Drawing.Point(271, 471);
             this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(110, 20);
+            this.radioButton12.Size = new System.Drawing.Size(122, 20);
             this.radioButton12.TabIndex = 19;
             this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "radioButton12";
+            this.radioButton12.Text = "Sentinel Search";
             this.radioButton12.UseVisualStyleBackColor = true;
             // 
             // groupBox4
@@ -291,7 +292,7 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.importCSVBttn);
+            this.Controls.Add(this.importCSVBtn);
             this.Controls.Add(this.linkedListRadio);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.arrayListRadio);
@@ -300,7 +301,6 @@
             this.Controls.Add(this.groupBox4);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -316,7 +316,7 @@
         private System.Windows.Forms.RadioButton arrayListRadio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton linkedListRadio;
-        private System.Windows.Forms.Button importCSVBttn;
+        private System.Windows.Forms.Button importCSVBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
