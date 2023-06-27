@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LegoAlgorithm
 {
     public partial class Form1 : Form
     {
         CsvS<string> _csv = new CsvS<string>();
-        ChrisArrayList<T> ArrayList = new ChrisArrayList<T>();
 
         public Form1()
         {
@@ -58,8 +59,8 @@ namespace LegoAlgorithm
                                 string rgb = values[2];
                                 string transparency = values[3];
                                 //create new lego data
-                                LegoData legoData = new LegoData(id, name, rgb, transparency);
-                                ArrayList.Add(legoData);
+                                //LegoData legoData = new LegoData(id, name, rgb, transparency);
+                                //ArrayList.Add(legoData);
                                 //add to listbox
                                 foreach (string s in values)
                                 {
@@ -76,6 +77,39 @@ namespace LegoAlgorithm
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void collectionChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            chosenList.Text = collectionChoice.Text;
+        }
+
+        private void collectionChoice_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string selectedOption = collectionChoice.SelectedItem.ToString();
+
+            switch (selectedOption)
+            {
+                case "ArrayList":
+                    HandleArrayList();
+                    break;
+
+                case "LinkedList":
+                    //LinkedList<T> LinkedList = new LinkedList<T>();
+
+                    break;
+
+                case "DoubleLinkedList":
+                    //DoubleLinkedList<T> DoubleLinkedList = new DoubleLinkedList<>();
+                    break;
+            }
+        }
+
+        private void HandleArrayList()
+        {
+            
+            //ChrisArrayList<T> arrayList = new ChrisArrayList<T>();
+            
         }
     }
 }
