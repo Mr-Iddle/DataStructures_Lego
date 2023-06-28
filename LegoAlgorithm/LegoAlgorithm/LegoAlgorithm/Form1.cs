@@ -42,7 +42,7 @@ namespace LegoAlgorithm
                 //clear the content of the datagridview
                 outputListBox.Items.Clear();
                 
-                foreach (string[] row in data)
+                foreach(string[] row in data)
                 {
                     outputListBox.Items.Add(string.Join(", ", row));
                 }
@@ -58,11 +58,19 @@ namespace LegoAlgorithm
                 {
                     string line = reader.ReadLine();
                     string[] values = line.Split(',');
+                    //InsertIntoAll(values.ToString());
                     data.AddLast(values);
                 }
             }
             return data;
         }
+
+        /*private void InsertIntoAll(string data)
+        {
+            _arrayList.Add(data);
+            _linkedList.AddLast(data);
+            //_doubleLinkedList.AddLastNode(data);
+        }*/
 
         private void DefaultOptions()
         {
@@ -133,7 +141,7 @@ namespace LegoAlgorithm
             //do something
         }
 
-        private void GetCollectionType(string collectionType)
+       /* private T GetCollectionType(string collectionType)
         {
             if (collectionType.Equals("LinkedList"))
             {
@@ -151,6 +159,6 @@ namespace LegoAlgorithm
             {
                 throw new InvalidOperationException("This collection wont work with this item");
             }
-        }
+        }*/
     }
 }
