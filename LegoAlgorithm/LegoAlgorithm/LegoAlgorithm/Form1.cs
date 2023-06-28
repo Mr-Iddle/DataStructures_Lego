@@ -26,7 +26,7 @@ namespace LegoAlgorithm
             //_csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
             this._arrayList = new ChrisArrayList<string>();
             this._linkedList = new CorvinLinkedList<string>();
-            //this._doubleLinkedList = new DoubleLinkedList<>();
+            this._doubleLinkedList = new Dll<string>();
             DefaultOptions();
         }
         private void importCSVBtn_Click(object sender, EventArgs e)
@@ -38,7 +38,22 @@ namespace LegoAlgorithm
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                using (StreamReader sr = new StreamReader(filePath))
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    reader.ReadLine();
+
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] fields = line.Split(','); //check here
+                        if (fields.Length >= 2)
+                        {
+                            InsertIntoAll(fields[1].Trim());
+                        }
+                        outputListBox.Items.Add(string.Join(", ", fields));
+                    }
+                }
+                /*using (StreamReader sr = new StreamReader(filePath))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -52,13 +67,13 @@ namespace LegoAlgorithm
                         }
                         outputListBox.Items.Add(string.Join(", ", values));
                     }
-                }
+                }*/
 
             }
         }
 
 
-            private void InsertIntoAll(string data)
+    private void InsertIntoAll(string data)
             {
                 try
                 {
