@@ -20,3 +20,14 @@ C:\Users\Corvin\source\repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorit
 C:\Users\Corvin\source\repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.csproj.CoreCompileInputs.cache
 C:\Users\Corvin\source\repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.exe
 C:\Users\Corvin\source\repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.pdb
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\bin\Debug\LegoAlgorithm.exe.config
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\bin\Debug\LegoAlgorithm.exe
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\bin\Debug\LegoAlgorithm.pdb
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.csproj.AssemblyReference.cache
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.csproj.SuggestedBindingRedirects.cache
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.Form1.resources
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.Properties.Resources.resources
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.csproj.GenerateResource.cache
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.exe
+C:\Users\vm\Desktop\Repos\AlgoLego2.0\LegoAlgorithm\LegoAlgorithm\LegoAlgorithm\obj\Debug\LegoAlgorithm.pdb
