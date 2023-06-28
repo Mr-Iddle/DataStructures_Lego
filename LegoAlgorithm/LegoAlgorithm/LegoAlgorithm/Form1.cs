@@ -157,7 +157,7 @@ namespace LegoAlgorithm
         private void SortBtn_Click(object sender, EventArgs e)
         {
             string searchColor = "Black";
-            int positionSls = _linkedList.LinearSearch(searchColor);
+            int positionSls = _linkedList.BinarySearch(searchColor);
 
             if (positionSls != -1)
             {

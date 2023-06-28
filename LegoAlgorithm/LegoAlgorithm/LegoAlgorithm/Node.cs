@@ -9,15 +9,15 @@ namespace LegoAlgorithm
     public class Node<T>
     {
         //Proprieties for the node data which is the color of type string and pointers to the next and previous node
-        public T color { get; set; }
-        public Node<T> nextNode { get; set; }
-        public Node<T> prevNode { get; set; }
+        public T Color { get; set; }
+        public Node<T> NextNode { get; set; }
+        public Node<T> PrevNode { get; set; }
 
         public Node(T color)
         {
-            this.color = color;
-            this.nextNode = null;
-            this.prevNode = null;
+            this.Color = color;
+            this.NextNode = null;
+            this.PrevNode = null;
         }
     }
 }

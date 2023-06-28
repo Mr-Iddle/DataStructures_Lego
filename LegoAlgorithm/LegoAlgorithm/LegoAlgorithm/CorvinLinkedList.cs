@@ -51,7 +51,7 @@ namespace LegoAlgorithm
             else
             {
                 newNode.nextNode = _head;
-                _head.prevNode = newNode;
+                _head.PrevNode = newNode;
                 _head = newNode;
             }
 
@@ -71,8 +71,8 @@ namespace LegoAlgorithm
             }
             else
             {
-                newNode.prevNode = _tail;
-                _tail.nextNode = newNode;
+                newNode.PrevNode = _tail;
+                _tail.NextNode = newNode;
                 _tail = newNode;
             }
 
@@ -104,13 +104,13 @@ namespace LegoAlgorithm
                 var current = _head;
                 for (var i = 0; i < index; i++)
                 {
-                    current = current.nextNode;
+                    current = current.NextNode;
                 }
 
-                newNode.prevNode = current.prevNode;
-                newNode.nextNode = current;
-                current.prevNode.nextNode = newNode;
-                current.prevNode = newNode;
+                newNode.PrevNode = current.PrevNode;
+                newNode.NextNode = current;
+                current.PrevNode.NextNode = newNode;
+                current.PrevNode = newNode;
 
                 Count++;
             }
@@ -124,33 +124,33 @@ namespace LegoAlgorithm
             while (current != null)
             {
                 //if the value is found, remove it
-                if (EqualityComparer<T>.Default.Equals(current.color, value))
+                if (EqualityComparer<T>.Default.Equals(current.Color, value))
                 {
                     //if node before is not null, set the next node to the current node
-                    if (current.prevNode != null)
+                    if (current.PrevNode != null)
                     {
-                        current.prevNode.nextNode = current.nextNode;
+                        current.PrevNode.NextNode = current.NextNode;
                     }
                     else
                     {
-                        _head = current.nextNode;
+                        _head = current.NextNode;
                     }
 
                     //if node after is not null, set the previous node to the current node
-                    if (current.nextNode != null)
+                    if (current.NextNode != null)
                     {
-                        current.nextNode.prevNode = current.prevNode;
+                        current.NextNode.PrevNode = current.PrevNode;
                     }
                     else
                     {
-                        _tail = current.prevNode;
+                        _tail = current.PrevNode;
                     }
 
                     Count--;
                     return true;
                 }
                 //set the current node to the next node
-                current = current.nextNode;
+                current = current.NextNode;
             }
 
             return false;
@@ -170,27 +170,27 @@ namespace LegoAlgorithm
             //loop through the list to find the index
             for (var i = 0; i < index; i++)
             {
-                current = current.nextNode;
+                current = current.NextNode;
             }
 
             //if the current node is the head, set the head to the next node
-            if (current.prevNode != null)
+            if (current.PrevNode != null)
             {
-                current.prevNode.nextNode = current.nextNode;
+                current.PrevNode.NextNode = current.NextNode;
             }
             else
             {
-                _head = current.nextNode;
+                _head = current.NextNode;
             }
 
             //if the current node is the tail, set the tail to the previous node
-            if (current.nextNode != null)
+            if (current.NextNode != null)
             {
-                current.nextNode.prevNode = current.prevNode;
+                current.NextNode.PrevNode = current.PrevNode;
             }
             else
             {
-                _tail = current.prevNode;
+                _tail = current.PrevNode;
             }
             Count--;
         }
@@ -202,7 +202,7 @@ namespace LegoAlgorithm
             {
                 throw new InvalidOperationException("Personal LinkedList contains nothing!");
             }
-            return _head.color;
+            return _head.Color;
         }
 
         //get the tail of the list
@@ -213,7 +213,7 @@ namespace LegoAlgorithm
             {
                 throw new InvalidOperationException("Personal LinkedList contains nothing!");
             }
-            return _tail.color;
+            return _tail.Color;
         }
 
         //Get the node at a specific index
@@ -232,7 +232,7 @@ namespace LegoAlgorithm
                     return currentNode;
                 }
                 //increase   
-                currentNode = currentNode.nextNode;
+                currentNode = currentNode.NextNode;
                 currentIndex++;
             }
 
@@ -258,12 +258,12 @@ namespace LegoAlgorithm
             while (current != null)
             {
                 //check if the value is equal to the current node
-                if (EqualityComparer<T>.Default.Equals(current.color, value))
+                if (EqualityComparer<T>.Default.Equals(current.Color, value))
                 {
                     return index;
                 }
                 index++;
-                current = current.nextNode;
+                current = current.NextNode;
             }
 
             return -1;
@@ -281,7 +281,7 @@ namespace LegoAlgorithm
                 {
                     return currentNode;
                 }
-                currentNode = currentNode.nextNode;
+                currentNode = currentNode.NextNode;
                 currentIndex++;
             }
 
@@ -297,9 +297,9 @@ namespace LegoAlgorithm
         //Swapping function
         private void Change(Node<T> target, Node<T> exchanger)
         {
-            var temp = target.color;
-            target.color = exchanger.color;
-            exchanger.color = temp;
+            var temp = target.Color;
+            target.Color = exchanger.Color;
+            exchanger.Color = temp;
         }
 
         private int Partition(int startIndex, int endIndex)
@@ -312,13 +312,13 @@ namespace LegoAlgorithm
             for (var j = startIndex; j <= endIndex - 1; j++)
             {
                 //if the current node is less than the pivot value, increment the position and swap the nodes
-                if (Comparer<T>.Default.Compare(currentNode.color, pivotValue.color) < 0)
+                if (Comparer<T>.Default.Compare(currentNode.Color, pivotValue.Color) < 0)
                 {
                     position++;
                     Change(GetNodeAt(position), currentNode);
                 }
 
-                currentNode = currentNode.nextNode;
+                currentNode = currentNode.NextNode;
             }
 
             //Swapping the nodes
@@ -385,15 +385,15 @@ namespace LegoAlgorithm
 
                 while (current != endNode)
                 {
-                    if (Comparer<T>.Default.Compare(current.color, current.nextNode.color) > 0)
+                    if (Comparer<T>.Default.Compare(current.Color, current.NextNode.Color) > 0)
                     {
-                        Change(current, current.nextNode);
+                        Change(current, current.NextNode);
                         swapped = true;
                     }
-                    current = current.nextNode;
+                    current = current.NextNode;
                 }
 
-                endNode = endNode.prevNode;
+                endNode = endNode.PrevNode;
             } while (swapped);
 
             clock.Stop();
@@ -416,51 +416,48 @@ namespace LegoAlgorithm
 
             while (currentNode != null)
             {
-                if (EqualityComparer<T>.Default.Equals(value, currentNode.color)) ///ignore capital or small letters, treat it as the same
+                if (EqualityComparer<T>.Default.Equals(value, currentNode.Color)) ///ignore capital or small letters, treat it as the same
                 {
                     return i;
                 }
-
-                currentNode = currentNode.nextNode;
+                
+                currentNode = currentNode.NextNode;
                 i++;
             }
             return -1;
         }
 
-        public (bool, TimeSpan) BinarySearch(T value, int startIndex, int endIndex)
+        public int BinarySearch(T value)
         {
-            //start Stopwatch
-            var sw = Stopwatch.StartNew();
-            //get the middle index from the List
-            var middleIndex = startIndex + (endIndex - startIndex) / 2;
-            //Access the middle node
-            var middleNode = GetNodeAt(middleIndex);
-            //State the comparison result
-            var comparisonResult = Comparer<T>.Default.Compare(middleNode.color, value);
-
-            //Start loop to find the value
-            while (startIndex <= endIndex)
+            if (_head == null)
             {
-                //When the value is found, stopp the Stopwatch and return the time
-                if (comparisonResult == 0)
-                {
-                    sw.Stop();
-                    return (true, sw.Elapsed);
-                }
+                return -1;
+            }
 
-                //If not found, change the start or end index
-                if (comparisonResult < 0)
+            int l = 0; //left
+            int r = this.Count - 1; //right
+
+            while (l <= r)
+            {
+                int m = l + (r - l) / 2;//middle
+                Node<T> mNode = GetNodeAt(m);
+
+                int compareStrings = Comparer<T>.Default.Compare(value, mNode.Color);
+
+                if (compareStrings == 0)
                 {
-                    startIndex = middleIndex + 1;
+                    return m;
+                }
+                else if (compareStrings < 0)
+                {
+                    r = m - 1; //left half
                 }
                 else
                 {
-                    endIndex = middleIndex - 1;
+                    l = m + 1; //right half
                 }
             }
-            //return time to display
-            sw.Stop();
-            return (false, sw.Elapsed);
+            return -1;
         }
 
 
@@ -471,9 +468,9 @@ namespace LegoAlgorithm
             var result = new StringBuilder();
             while (currentNode != null)
             {
-                result.Append(currentNode.color);
+                result.Append(currentNode.Color);
                 result.Append(" ");
-                currentNode = currentNode.nextNode;
+                currentNode = currentNode.NextNode;
             }
             return result.ToString();
         }
@@ -483,8 +480,8 @@ namespace LegoAlgorithm
             var current = _head;
             while (current != null)
             {
-                yield return current.color;
-                current = current.nextNode;
+                yield return current.Color;
+                current = current.NextNode;
             }
         }
 
