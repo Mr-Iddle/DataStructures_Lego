@@ -14,8 +14,8 @@ namespace LegoAlgorithm
 {
     public partial class Form1 : Form
     {
-        private MyLinkedList CorvinLinkedList = new MyLinkedList();
-        private LinkedListTest<int> value;
+        //private MyLinkedList CorvinLinkedList = new MyLinkedList();
+        private LinkedListTest<T> value = new LinkedListTest<T>();
 
         public Form1()
         {
@@ -37,9 +37,9 @@ namespace LegoAlgorithm
             };
             if (fileDialog.ShowDialog().Equals(DialogResult.OK))
             {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(fileDialog.FileName))
+               /* try
+                {*/
+                    /*using (StreamReader sr = new StreamReader(fileDialog.FileName))
                     {
                         //ignores fist line
                         bool firtstline = true;
@@ -74,15 +74,15 @@ namespace LegoAlgorithm
                                     result_TB.Text += s + "\t";
                                 }
                                 result_TB.Text += "\n";
-                            }
-
+                            }*/
+/*
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
+                }*/
             }
         }
 
@@ -140,7 +140,7 @@ namespace LegoAlgorithm
             string input = input_txt.Text;
             string[] numberStrings = input.Split(' ');
 
-            value = new LinkedListTest<int>();
+            value = new LinkedListTest<T>();
 
             foreach (string numberString in numberStrings)
             {

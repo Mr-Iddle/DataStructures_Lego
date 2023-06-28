@@ -17,8 +17,6 @@ namespace LegoAlgorithm
         public CsvS()
         {
             this.mylist = new LinkedListTest<T>();
-            var startindex = mylist.GetFirst();
-            var endindex = mylist.GetLast();
 
         }
 
