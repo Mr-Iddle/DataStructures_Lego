@@ -17,16 +17,17 @@ namespace LegoAlgorithm
     {
         CsvS<string> _csv = new CsvS<string>();
         private ChrisArrayList<string> _arrayList;
-        private LinkedList<string> _linkedList;
+        private CorvinLinkedList<string> _linkedList;
         //private DoubleLinkedList<string> _doubleLinkedList;
 
         public Form1()
         {
             InitializeComponent();
             _csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
-            this._arrayList = new ChrisArrayList<string>();
-            this._linkedList = new LinkedList<string>();
+            _arrayList = new ChrisArrayList<string>();
+            _linkedList = new CorvinLinkedList<string>();
             //this._doubleLinkedList = new DoubleLinkedList<>();
+            DefaultOptions();
         }
 
         private void ImportCSVBtn_Click(object sender, EventArgs e)
@@ -85,48 +86,92 @@ namespace LegoAlgorithm
             }
         }
 
+        private void DefaultOptions()
+        {
+            BinarySearchRadio.Enabled = false;
+            BinarySearchRadio.Checked = false;
+            SentinelSearchRadio.Enabled = false;
+            SentinelSearchRadio.Checked = false;
+            
+            QuickSortRadio.Enabled = false;
+            BubbleSortRadio.Enabled = false;
+            LinearSearchRadio.Enabled = false;
+            ForwardTraversRadio.Enabled = false;
+            BackwardsTraversRadio.Enabled = false;
+
+            QuickSortRadio.Checked = false;
+            BubbleSortRadio.Checked = false;
+            LinearSearchRadio.Checked = false;
+            ForwardTraversRadio.Checked = false;
+            BackwardsTraversRadio.Checked = false;
+            
+            SortBtn.Enabled = false;
+            SearchBtn.Enabled = false;
+        }
+
         private void collectionChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
             chosenList.Text = collectionChoice.Text;
         }
 
-        private void collectionChoice_SelectionChangeCommitted(object sender, EventArgs e) 
+        private void collectionChoice_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            DefaultOptions();
             string selectedOption = collectionChoice.SelectedItem.ToString();
 
-            switch (selectedOption)
+            if (selectedOption.Equals("ArrayList"))
             {
-                case "ArrayList":
-                    if (BubbleSortRadio.Checked)
-                    {
-                        //do something
-                    }else if (QuickSortRadio.Checked)
-                    {
-                        //do something
-                    }
-                    break;
+                BinarySearchRadio.Enabled = true;
+                LinearSearchRadio.Enabled = true;
+                QuickSortRadio.Enabled = true;
+                BubbleSortRadio.Enabled = true;
+                SearchBtn.Enabled = true;
+                SortBtn.Enabled = true;
+            }else if (selectedOption.Equals("LinkedList"))
+            {
+                BinarySearchRadio.Enabled = true;
+                LinearSearchRadio.Enabled = true;
+                QuickSortRadio.Enabled = true;
+                BubbleSortRadio.Enabled = true;
+                SearchBtn.Enabled = true;
+                SortBtn.Enabled = true;
 
-                case "LinkedList":
-                    if (BubbleSortRadio.Checked)
-                    {
-                        //do something
-                    }
-                    else if (QuickSortRadio.Checked)
-                    {
-                        //do something
-                    }
-                    break;
+            }else if (selectedOption.Equals("DoubleLinkedList"))
+            {
+                BinarySearchRadio.Enabled = true;
+                LinearSearchRadio.Enabled = true;
+                QuickSortRadio.Enabled = true;
+                BubbleSortRadio.Enabled = true;
+                ForwardTraversRadio.Enabled = true;
+                BackwardsTraversRadio.Enabled = true;
+                SentinelSearchRadio.Enabled = true;
+                SearchBtn.Enabled = true;
+                SortBtn.Enabled = true;
+            }
+        }
 
-                case "DoubleLinkedList":
-                    if (BubbleSortRadio.Checked)
-                    {
-                        //do something
-                    }
-                    else if (QuickSortRadio.Checked)
-                    {
-                        //do something
-                    }
-                    break;
+        private void SortBtn_Click(object sender, EventArgs e)
+        {
+            //do something
+        }
+
+        private void GetCollectionType(string collectionType)
+        {
+            if (collectionType.Equals("LinkedList"))
+            {
+                return _linkedList;
+            }
+            else if (collectionType.Equals("ArrayList"))
+            {
+                return _arrayList;
+            }
+            else if (collectionType.Equals("BinarySearchTree"))
+            {
+                return null;
+            }
+            else
+            {
+                throw new InvalidOperationException("This collection wont work with this item");
             }
         }
     }
