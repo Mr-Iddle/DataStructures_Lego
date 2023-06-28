@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,77 +13,55 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LegoAlgorithm
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
-        CsvS<string> _csv = new CsvS<string>();
+       // CsvS<string> _csv = new CsvS<string>();
         private ChrisArrayList<string> _arrayList;
-        private CorvinLinkedList<string> _linkedList;
+        private CorvinLinkedList<string[]> _linkedList;
         //private DoubleLinkedList<string> _doubleLinkedList;
-
+        private object[] values;
         public Form1()
         {
             InitializeComponent();
-            _csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
-            _arrayList = new ChrisArrayList<string>();
-            _linkedList = new CorvinLinkedList<string>();
+            //_csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
+            this._arrayList = new ChrisArrayList<string>();
+            this._linkedList = new CorvinLinkedList<string[]>();
             //this._doubleLinkedList = new DoubleLinkedList<>();
             DefaultOptions();
         }
-
-        private void ImportCSVBtn_Click(object sender, EventArgs e)
-        {
-            FileDialog fileDialog = new OpenFileDialog()
+         private void importCSVBtn_Click(object sender, EventArgs e)
             {
-                Filter = "CSV Files (*.csv)|*.csv",
-            };
-            if (fileDialog.ShowDialog().Equals(DialogResult.OK))
-            {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(fileDialog.FileName))
-                    {
-                        //ignores fist line
-                        bool firtstline = true;
-                        while (!sr.EndOfStream)
-                        {
-                            //read line
-                            string line = sr.ReadLine();
-                            //split line
-                            string[] values = line.Split(',');
-                            if (firtstline)
-                            {
-                                foreach (string s in values)
-                                {
-                                    //result_TB.Text += s + "\t";
-                                }
-                                //result_TB.Text += "\n";
-                                firtstline = false;
-                            }
-                            else
-                            {
-                                int id = int.Parse(values[0]);
-                                string name = values[1];
-                                string rgb = values[2];
-                                string transparency = values[3];
-                                //create new lego data
-                                //LegoData legoData = new LegoData(id, name, rgb, transparency);
-                                //ArrayList.Add(legoData);
-                                //add to listbox
-                                foreach (string s in values)
-                                {
-                                    //result_TB.Text += s + "\t";
-                                }
-                                //result_TB.Text += "\n";
-                            }
 
-                        }
-                    }
-                }
-                catch (Exception ex)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                CorvinLinkedList<string[]> data = ReadCSV(filePath);
+
+                //clear the content of the datagridview
+                outputListBox.Items.Clear();
+                
+                foreach (string[] row in data)
                 {
-                    MessageBox.Show(ex.Message);
+                    outputListBox.Items.Add(string.Join(", ", row));
                 }
             }
+        }
+
+        private CorvinLinkedList<string[]> ReadCSV(string filePath)
+        {
+            CorvinLinkedList<string[]> data = new CorvinLinkedList<string[]>();
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    string[] values = line.Split(',');
+                    data.AddLast(values);
+                }
+            }
+            return data;
         }
 
         private void DefaultOptions()
