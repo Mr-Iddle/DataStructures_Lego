@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
 namespace LegoAlgorithm
 {
-    internal class ChrisArrayList<T>
+    internal class ChrisArrayList<T> : IEnumerable<T>
     {
         private T[] _items;
         private int _capacity;
@@ -217,6 +218,16 @@ namespace LegoAlgorithm
             stopWatch.Start();
             Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DIDNT find the item");
             return false;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

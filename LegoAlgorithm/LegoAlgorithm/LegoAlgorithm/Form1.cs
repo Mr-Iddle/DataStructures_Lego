@@ -16,11 +16,17 @@ namespace LegoAlgorithm
     public partial class Form1 : Form
     {
         CsvS<string> _csv = new CsvS<string>();
+        private ChrisArrayList<string> _arrayList;
+        private LinkedList<string> _linkedList;
+        //private DoubleLinkedList<string> _doubleLinkedList;
 
         public Form1()
         {
             InitializeComponent();
             _csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
+            this._arrayList = new ChrisArrayList<string>();
+            this._linkedList = new LinkedList<string>();
+            //this._doubleLinkedList = new DoubleLinkedList<>();
         }
 
         private void ImportCSVBtn_Click(object sender, EventArgs e)
@@ -84,32 +90,44 @@ namespace LegoAlgorithm
             chosenList.Text = collectionChoice.Text;
         }
 
-        private void collectionChoice_SelectionChangeCommitted(object sender, EventArgs e)
+        private void collectionChoice_SelectionChangeCommitted(object sender, EventArgs e) 
         {
             string selectedOption = collectionChoice.SelectedItem.ToString();
 
             switch (selectedOption)
             {
                 case "ArrayList":
-                    HandleArrayList();
+                    if (BubbleSortRadio.Checked)
+                    {
+                        //do something
+                    }else if (QuickSortRadio.Checked)
+                    {
+                        //do something
+                    }
                     break;
 
                 case "LinkedList":
-                    //LinkedList<T> LinkedList = new LinkedList<T>();
-
+                    if (BubbleSortRadio.Checked)
+                    {
+                        //do something
+                    }
+                    else if (QuickSortRadio.Checked)
+                    {
+                        //do something
+                    }
                     break;
 
                 case "DoubleLinkedList":
-                    //DoubleLinkedList<T> DoubleLinkedList = new DoubleLinkedList<>();
+                    if (BubbleSortRadio.Checked)
+                    {
+                        //do something
+                    }
+                    else if (QuickSortRadio.Checked)
+                    {
+                        //do something
+                    }
                     break;
             }
-        }
-
-        private void HandleArrayList()
-        {
-            
-            //ChrisArrayList<T> arrayList = new ChrisArrayList<T>();
-            
         }
     }
 }

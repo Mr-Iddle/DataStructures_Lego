@@ -31,17 +31,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.importCSVBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.BubbleSortRadio = new System.Windows.Forms.RadioButton();
+            this.QuickSortRadio = new System.Windows.Forms.RadioButton();
+            this.LinearSearchRadio = new System.Windows.Forms.RadioButton();
+            this.BinarySearchRadio = new System.Windows.Forms.RadioButton();
+            this.SentinelSearchRadio = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.SortBtn = new System.Windows.Forms.Button();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.ForwardTraversRadio = new System.Windows.Forms.RadioButton();
+            this.BackwardsTraversRadio = new System.Windows.Forms.RadioButton();
             this.collectionChoice = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.chosenList = new System.Windows.Forms.Label();
@@ -78,60 +78,60 @@
             this.dataGridView1.Size = new System.Drawing.Size(513, 449);
             this.dataGridView1.TabIndex = 5;
             // 
-            // radioButton1
+            // BubbleSortRadio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(40, 189);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(98, 20);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Bubble Sort";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.BubbleSortRadio.AutoSize = true;
+            this.BubbleSortRadio.Location = new System.Drawing.Point(40, 189);
+            this.BubbleSortRadio.Name = "BubbleSortRadio";
+            this.BubbleSortRadio.Size = new System.Drawing.Size(98, 20);
+            this.BubbleSortRadio.TabIndex = 6;
+            this.BubbleSortRadio.TabStop = true;
+            this.BubbleSortRadio.Text = "Bubble Sort";
+            this.BubbleSortRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // QuickSortRadio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(40, 215);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(89, 20);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Quick Sort";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.QuickSortRadio.AutoSize = true;
+            this.QuickSortRadio.Location = new System.Drawing.Point(40, 215);
+            this.QuickSortRadio.Name = "QuickSortRadio";
+            this.QuickSortRadio.Size = new System.Drawing.Size(89, 20);
+            this.QuickSortRadio.TabIndex = 7;
+            this.QuickSortRadio.TabStop = true;
+            this.QuickSortRadio.Text = "Quick Sort";
+            this.QuickSortRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // LinearSearchRadio
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(41, 385);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(111, 20);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Linear Search";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.LinearSearchRadio.AutoSize = true;
+            this.LinearSearchRadio.Location = new System.Drawing.Point(41, 385);
+            this.LinearSearchRadio.Name = "LinearSearchRadio";
+            this.LinearSearchRadio.Size = new System.Drawing.Size(111, 20);
+            this.LinearSearchRadio.TabIndex = 8;
+            this.LinearSearchRadio.TabStop = true;
+            this.LinearSearchRadio.Text = "Linear Search";
+            this.LinearSearchRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // BinarySearchRadio
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(41, 411);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(112, 20);
-            this.radioButton4.TabIndex = 9;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Binary Search";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.BinarySearchRadio.AutoSize = true;
+            this.BinarySearchRadio.Location = new System.Drawing.Point(41, 411);
+            this.BinarySearchRadio.Name = "BinarySearchRadio";
+            this.BinarySearchRadio.Size = new System.Drawing.Size(112, 20);
+            this.BinarySearchRadio.TabIndex = 9;
+            this.BinarySearchRadio.TabStop = true;
+            this.BinarySearchRadio.Text = "Binary Search";
+            this.BinarySearchRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton12
+            // SentinelSearchRadio
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(40, 437);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(122, 20);
-            this.radioButton12.TabIndex = 19;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Sentinel Search";
-            this.radioButton12.UseVisualStyleBackColor = true;
+            this.SentinelSearchRadio.AutoSize = true;
+            this.SentinelSearchRadio.Location = new System.Drawing.Point(40, 437);
+            this.SentinelSearchRadio.Name = "SentinelSearchRadio";
+            this.SentinelSearchRadio.Size = new System.Drawing.Size(122, 20);
+            this.SentinelSearchRadio.TabIndex = 19;
+            this.SentinelSearchRadio.TabStop = true;
+            this.SentinelSearchRadio.Text = "Sentinel Search";
+            this.SentinelSearchRadio.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -153,45 +153,45 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Choose search type";
             // 
-            // button1
+            // SortBtn
             // 
-            this.button1.Location = new System.Drawing.Point(238, 206);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 39);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Sort";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SortBtn.Location = new System.Drawing.Point(238, 206);
+            this.SortBtn.Name = "SortBtn";
+            this.SortBtn.Size = new System.Drawing.Size(94, 39);
+            this.SortBtn.TabIndex = 25;
+            this.SortBtn.Text = "Sort";
+            this.SortBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // SearchBtn
             // 
-            this.button2.Location = new System.Drawing.Point(238, 402);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 39);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Search for:";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SearchBtn.Location = new System.Drawing.Point(238, 411);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(97, 39);
+            this.SearchBtn.TabIndex = 26;
+            this.SearchBtn.Text = "Search for:";
+            this.SearchBtn.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // ForwardTraversRadio
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(40, 241);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(138, 20);
-            this.radioButton5.TabIndex = 27;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Forward Traversal";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.ForwardTraversRadio.AutoSize = true;
+            this.ForwardTraversRadio.Location = new System.Drawing.Point(40, 241);
+            this.ForwardTraversRadio.Name = "ForwardTraversRadio";
+            this.ForwardTraversRadio.Size = new System.Drawing.Size(138, 20);
+            this.ForwardTraversRadio.TabIndex = 27;
+            this.ForwardTraversRadio.TabStop = true;
+            this.ForwardTraversRadio.Text = "Forward Traversal";
+            this.ForwardTraversRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // BackwardsTraversRadio
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(40, 267);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(156, 20);
-            this.radioButton6.TabIndex = 28;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Backwards Traversal";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.BackwardsTraversRadio.AutoSize = true;
+            this.BackwardsTraversRadio.Location = new System.Drawing.Point(40, 267);
+            this.BackwardsTraversRadio.Name = "BackwardsTraversRadio";
+            this.BackwardsTraversRadio.Size = new System.Drawing.Size(156, 20);
+            this.BackwardsTraversRadio.TabIndex = 28;
+            this.BackwardsTraversRadio.TabStop = true;
+            this.BackwardsTraversRadio.Text = "Backwards Traversal";
+            this.BackwardsTraversRadio.UseVisualStyleBackColor = true;
             // 
             // collectionChoice
             // 
@@ -234,17 +234,17 @@
             this.Controls.Add(this.chosenList);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.collectionChoice);
-            this.Controls.Add(this.radioButton6);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BackwardsTraversRadio);
+            this.Controls.Add(this.ForwardTraversRadio);
+            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.SortBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton12);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.QuickSortRadio);
+            this.Controls.Add(this.SentinelSearchRadio);
+            this.Controls.Add(this.BinarySearchRadio);
+            this.Controls.Add(this.LinearSearchRadio);
+            this.Controls.Add(this.BubbleSortRadio);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.importCSVBtn);
             this.Controls.Add(this.label1);
@@ -260,17 +260,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button importCSVBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton BubbleSortRadio;
+        private System.Windows.Forms.RadioButton QuickSortRadio;
+        private System.Windows.Forms.RadioButton LinearSearchRadio;
+        private System.Windows.Forms.RadioButton BinarySearchRadio;
+        private System.Windows.Forms.RadioButton SentinelSearchRadio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.Button SortBtn;
+        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.RadioButton ForwardTraversRadio;
+        private System.Windows.Forms.RadioButton BackwardsTraversRadio;
         private System.Windows.Forms.ComboBox collectionChoice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label chosenList;
