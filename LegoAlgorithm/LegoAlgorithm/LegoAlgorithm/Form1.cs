@@ -17,7 +17,7 @@ namespace LegoAlgorithm
     {
        // CsvS<string> _csv = new CsvS<string>();
         private ChrisArrayList<string> _arrayList;
-        private CorvinLinkedList<string[]> _linkedList;
+        private CorvinLinkedList<string> _linkedList;
         //private DoubleLinkedList<string> _doubleLinkedList;
         private object[] values;
         public Form1()
@@ -25,7 +25,7 @@ namespace LegoAlgorithm
             InitializeComponent();
             //_csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
             this._arrayList = new ChrisArrayList<string>();
-            this._linkedList = new CorvinLinkedList<string[]>();
+            this._linkedList = new CorvinLinkedList<string>();
             //this._doubleLinkedList = new DoubleLinkedList<>();
             DefaultOptions();
         }
@@ -37,40 +37,32 @@ namespace LegoAlgorithm
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                CorvinLinkedList<string[]> data = ReadCSV(filePath);
+                string data = InsertIntoAll(filePath);
 
                 //clear the content of the datagridview
                 outputListBox.Items.Clear();
                 
-                foreach(string[] row in data)
+                foreach(string row in data)
                 {
                     outputListBox.Items.Add(string.Join(", ", row));
                 }
             }
         }
 
-        private CorvinLinkedList<string[]> ReadCSV(string filePath)
-        {
-            CorvinLinkedList<string[]> data = new CorvinLinkedList<string[]>();
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    string[] values = line.Split(',');
-                    //InsertIntoAll(values.ToString());
-                    data.AddLast(values);
-                }
-            }
-            return data;
-        }
 
-        /*private void InsertIntoAll(string data)
+        private void InsertIntoAll(string data)
         {
-            _arrayList.Add(data);
-            _linkedList.AddLast(data);
-            //_doubleLinkedList.AddLastNode(data);
-        }*/
+            try
+            {
+                _arrayList.Add(data);
+                _linkedList.AddLast(data);
+                //_doubleLinkedList.AddLastNode(data);
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
 
         private void DefaultOptions()
         {
