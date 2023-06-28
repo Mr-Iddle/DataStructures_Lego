@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace LegoAlgorithm
 {
-    internal class Dll
-    {
-        public class dll<T>
+
+        public class Dll<T>
         {
             /*The double linked list, it has a head pointer pointing to the first node and a tail pointer which is pointing
                 at the last node. The count field keeps track of how many nodes are in the list.
@@ -356,4 +355,3 @@ namespace LegoAlgorithm
             }
         }
     }
-}

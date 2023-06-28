@@ -18,7 +18,7 @@ namespace LegoAlgorithm
         // CsvS<string> _csv = new CsvS<string>();
         private ChrisArrayList<string> _arrayList;
         private CorvinLinkedList<string> _linkedList;
-        private DoubleLinkedList<string> _doubleLinkedList;
+        private Dll<string> _doubleLinkedList;
         private object[] values;
         public Form1()
         {
@@ -64,7 +64,7 @@ namespace LegoAlgorithm
                 {
                     _arrayList.Add(data);
                     _linkedList.AddLast(data);
-                    //_doubleLinkedList.AddLastNode(data);
+                    _doubleLinkedList.AddLastNode(data);
                 }
                 catch (Exception ex)
                 {
@@ -141,8 +141,20 @@ namespace LegoAlgorithm
 
             private void SortBtn_Click(object sender, EventArgs e)
             {
-                //do something
+            string searchColor = "Black";
+            int positionSls = _doubleLinkedList.linearSearch("Black");
+
+            if (positionSls != -1)
+            {
+                //$ is string inerpolation {} are bindings. String interpolation allows us to bind the variables to the string.
+                Console.WriteLine($"Position (sentinel linear search) of '{searchColor}' is {positionSls}");
             }
+            else
+            {
+                Console.WriteLine($"'{searchColor}' not found !");
+            }
+            //do something
+        }
 
             /* private T GetCollectionType(string collectionType)
              {
