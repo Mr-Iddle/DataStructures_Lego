@@ -18,7 +18,7 @@ namespace LegoAlgorithm
        // CsvS<string> _csv = new CsvS<string>();
         private ChrisArrayList<string> _arrayList;
         private CorvinLinkedList<string> _linkedList;
-        //private DoubleLinkedList<string> _doubleLinkedList;
+        private DoubleLinkedList<string> _doubleLinkedList;
         private object[] values;
         public Form1()
         {

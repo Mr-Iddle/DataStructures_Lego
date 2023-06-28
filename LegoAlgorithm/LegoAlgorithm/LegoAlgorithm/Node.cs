@@ -20,4 +20,3 @@ namespace LegoAlgorithm
             this.prevNode = null;
         }
     }
-}
