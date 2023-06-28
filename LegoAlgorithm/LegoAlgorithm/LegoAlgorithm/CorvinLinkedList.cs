@@ -11,7 +11,7 @@ namespace LegoAlgorithm
     public class CorvinLinkedList<T> : IEnumerable<T>
     {
         //creation of the internal node class
-       /* public class Node<T>
+        public class Node<T>
         {
             public Node(T value)
             {
@@ -23,7 +23,7 @@ namespace LegoAlgorithm
             public T Value { get; set; }
             public Node<T> Next { get; set; }
             public Node<T> Previous { get; set; }
-        }*/
+        }
 
         private Node<T> _head;
         private Node<T> _tail;
