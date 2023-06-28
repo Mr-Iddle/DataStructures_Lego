@@ -480,16 +480,19 @@ namespace LegoAlgorithm
             return result.ToString();
         }
 
-
-        //has to be implemented due to the IEnumerable interface
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            var current = _head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+﻿/*using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.IO;
 
@@ -18,10 +18,10 @@ namespace LegoAlgorithm
             //this.dll = new DLL<T>();
         }
 
-        /*public DLL<T> getDll()
+        *//*public DLL<T> getDll()
         {
             return this.dll;
-        }*/
+        }*//*
 
         public void NodeBuilder(string pathCsv)
         {
@@ -42,7 +42,7 @@ namespace LegoAlgorithm
             }
         }
 
-        /*public int sentinelLinearSearchCsv(T colorSLs)
+        *//*public int sentinelLinearSearchCsv(T colorSLs)
         {
             return dll.sentinelLinearSearch(colorSLs);
         }
@@ -50,7 +50,7 @@ namespace LegoAlgorithm
         public int linearSearchCsv(T colorLs)
         {
             return dll.linearSearch(colorLs);
-        }*/
+        }*//*
 
 
 
@@ -60,4 +60,4 @@ namespace LegoAlgorithm
             return (T)conv.ConvertFromString(value);
         }
     }
-}
+}*/

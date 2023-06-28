@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.importCSVBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BubbleSortRadio = new System.Windows.Forms.RadioButton();
             this.QuickSortRadio = new System.Windows.Forms.RadioButton();
             this.LinearSearchRadio = new System.Windows.Forms.RadioButton();
@@ -45,7 +44,7 @@
             this.collectionChoice = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.chosenList = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.outputListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -66,17 +65,7 @@
             this.importCSVBtn.TabIndex = 4;
             this.importCSVBtn.Text = "Import CSV";
             this.importCSVBtn.UseVisualStyleBackColor = true;
-            this.importCSVBtn.Click += new System.EventHandler(this.ImportCSVBtn_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(588, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(513, 449);
-            this.dataGridView1.TabIndex = 5;
+            this.importCSVBtn.Click += new System.EventHandler(this.importCSVBtn_Click);
             // 
             // BubbleSortRadio
             // 
@@ -226,11 +215,21 @@
             this.chosenList.Text = "?";
             this.chosenList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // outputListBox
+            // 
+            this.outputListBox.FormattingEnabled = true;
+            this.outputListBox.ItemHeight = 16;
+            this.outputListBox.Location = new System.Drawing.Point(565, 103);
+            this.outputListBox.Name = "outputListBox";
+            this.outputListBox.Size = new System.Drawing.Size(496, 324);
+            this.outputListBox.TabIndex = 32;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 597);
+            this.Controls.Add(this.outputListBox);
             this.Controls.Add(this.chosenList);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.collectionChoice);
@@ -245,12 +244,10 @@
             this.Controls.Add(this.BinarySearchRadio);
             this.Controls.Add(this.LinearSearchRadio);
             this.Controls.Add(this.BubbleSortRadio);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.importCSVBtn);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,7 +256,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button importCSVBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RadioButton BubbleSortRadio;
         private System.Windows.Forms.RadioButton QuickSortRadio;
         private System.Windows.Forms.RadioButton LinearSearchRadio;
@@ -274,6 +270,7 @@
         private System.Windows.Forms.ComboBox collectionChoice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label chosenList;
+        private System.Windows.Forms.ListBox outputListBox;
     }
 }
 
