@@ -15,11 +15,12 @@ namespace LegoAlgorithm
     public partial class Form1 : Form
     {
         //private MyLinkedList CorvinLinkedList = new MyLinkedList();
-        private LinkedListTest<T> value = new LinkedListTest<T>();
+        private LinkedListTest<string> list;
 
         public Form1()
         {
             InitializeComponent();
+            list = new LinkedListTest<string>();
 
         }
 
@@ -140,18 +141,12 @@ namespace LegoAlgorithm
             string input = input_txt.Text;
             string[] numberStrings = input.Split(' ');
 
-            value = new LinkedListTest<T>();
+           
 
             foreach (string numberString in numberStrings)
             {
-                if (int.TryParse(numberString, out int number))
-                {
-                    value.AddFirst(number);
-                }
-                else
-                {
-                    result_TB.Text = "Error";
-                }
+                
+                    list.AddFirst(numberString);
 
             }
             DisplayTheIntegers();
