@@ -157,7 +157,7 @@ namespace LegoAlgorithm
                 {
                     var result = _linkedList.BubbleSort();
                     outputListBox.Items.Clear();
-                    outputListBox.Items.Add("---- RESULT BUBBLE SORT LL TOOK " + result + " ----");
+                    outputListBox.Items.Add("---- RESULT BUBBLE SORT LL TOOK " + result + "----");
                     foreach (string item in _linkedList.Front())
                     {
                         outputListBox.Items.Add(item);
@@ -168,6 +168,7 @@ namespace LegoAlgorithm
                     _doubleLinkedList.BubbleSort();
                     outputListBox.Items.Clear();
                     outputListBox.Items.Add("---- TRAVERSAL FORWARD BUBBLE SORT ----");
+                    outputListBox.Items.Add($"Time elapsed for Bubble Sort: {_doubleLinkedList.BubbleSort()} seconds.");
                     foreach (string item in _doubleLinkedList.TrFwd())
                     {
                         outputListBox.Items.Add(item);
@@ -197,7 +198,7 @@ namespace LegoAlgorithm
                 {
                     var result = _linkedList.QuickSort();
                     outputListBox.Items.Clear();
-                    outputListBox.Items.Add("---- RESULT QUICK SORT LL TOOK" + result + " ----");
+                    outputListBox.Items.Add("---- RESULT QUICK SORT LL TOOK " + result + "----");
                     foreach (string item in _linkedList.Back())
                     {
                         outputListBox.Items.Add(item);
@@ -208,6 +209,7 @@ namespace LegoAlgorithm
                     outputListBox.Items.Clear();
                     _doubleLinkedList.QuickSort();
                     outputListBox.Items.Add("---- TRAVERSAL BACKWARDS QUICK SORT ----");
+                    outputListBox.Items.Add(($"Time elapsed for Quick Sort: {_doubleLinkedList.QuickSort()} seconds."));
                     foreach (string item in _doubleLinkedList.TrBwd())
                     {
                         outputListBox.Items.Add(item);
