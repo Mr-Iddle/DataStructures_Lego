@@ -512,7 +512,7 @@ namespace LegoAlgorithm
 
         }
 
-        public List<T> TrBwd()
+        public List<T> Check()
         {
             Node<T> current = this._tail;
             List<T> list = new List<T>();
