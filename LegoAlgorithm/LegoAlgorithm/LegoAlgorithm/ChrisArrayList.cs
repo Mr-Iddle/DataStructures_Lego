@@ -102,7 +102,7 @@ namespace LegoAlgorithm
             return sb.ToString();
         }
 
-        public void BubbleSort(int startIndex, int endIndex, IComparer<T> comparer = null)
+        public TimeSpan BubbleSort(int startIndex, int endIndex, IComparer<T> comparer = null)
         {
             var stopWatch = Stopwatch.StartNew();
             OutOfRangeIndex(startIndex);
@@ -119,10 +119,10 @@ namespace LegoAlgorithm
                         _items[j + 1] = swap;
                     }
             stopWatch.Stop();
-            Console.WriteLine($"BubbleSort took: {stopWatch.Elapsed} seconds");
+            return stopWatch.Elapsed;
         }
 
-        public void QuickSort(int startIndex, int endIndex, IComparer<T> comparer = null)
+        public TimeSpan QuickSort(int startIndex, int endIndex, IComparer<T> comparer = null)
         {
             var stopWatch = Stopwatch.StartNew();
             OutOfRangeIndex(startIndex);
@@ -132,7 +132,7 @@ namespace LegoAlgorithm
 
             QuickSortRecursive(startIndex, endIndex, comparer);
             stopWatch.Stop();
-            Console.WriteLine($"QuickSort took: {stopWatch.Elapsed} seconds");
+            return stopWatch.Elapsed;
         }
 
         public void QuickSortRecursive(int start, int end, IComparer<T> comparer)

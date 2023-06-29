@@ -142,7 +142,14 @@ namespace LegoAlgorithm
             {
                 if (selectedOption.Equals("ArrayList"))
                 {
-                    _arrayList.BubbleSort(0, _arrayList.Count - 1);
+                    var result = _arrayList.BubbleSort(0, _arrayList.Count - 1);
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add("Bubble Sort took: " + result);
+                    foreach (string item in _arrayList)
+                    {
+                        string itemText = item ?? "null";
+                        outputListBox.Items.Add(itemText);
+                    }
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
@@ -169,7 +176,14 @@ namespace LegoAlgorithm
             {
                 if (selectedOption.Equals("ArrayList"))
                 {
-                    _arrayList.QuickSort(0, _arrayList.Count - 1);
+                    var result = _arrayList.QuickSort(0, _arrayList.Count - 1);
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add("Quick sort took: " + result);
+                    foreach (string item in _arrayList)
+                    {
+                        string itemText = item ?? "null";
+                        outputListBox.Items.Add(itemText);
+                    }
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
@@ -223,7 +237,9 @@ namespace LegoAlgorithm
                 if (selectedOption.Equals("ArrayList"))
                 {
                     _arrayList.BubbleSort(0, _arrayList.Count - 1);
-                    _arrayList.LinearSearch(searchChoice, 0, _arrayList.Count - 1);
+                    var result = _arrayList.LinearSearch(searchChoice, 0, _arrayList.Count - 1);
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add(searchChoice + " " + "found at index: " + result);
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
@@ -251,7 +267,9 @@ namespace LegoAlgorithm
                 if (selectedOption.Equals("ArrayList"))
                 {
                     _arrayList.BubbleSort(0, _arrayList.Count - 1);
-                    _arrayList.BinarySearch(searchChoice, 0, _arrayList.Count - 1);
+                    var result = _arrayList.BinarySearch(searchChoice, 0, _arrayList.Count - 1);
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add(searchChoice + " " + "found at index: " + result);
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
