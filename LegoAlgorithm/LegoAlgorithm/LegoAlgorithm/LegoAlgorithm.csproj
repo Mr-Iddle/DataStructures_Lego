@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="ChrisArrayList.cs" />
     <Compile Include="CorvinLinkedList.cs" />
-    <Compile Include="CsvS.cs" />
     <Compile Include="Dll.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

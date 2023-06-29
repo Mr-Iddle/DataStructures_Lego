@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,7 +84,8 @@ namespace LegoAlgorithm
 
             public int LinearSearch(T colorLs)
             {
-                if (headNode == null)
+            var stopWatch = Stopwatch.StartNew();
+            if (headNode == null)
                 {
                     return -1;
                 }
@@ -95,6 +97,8 @@ namespace LegoAlgorithm
                 {
                     if (EqualityComparer<T>.Default.Equals(colorLs, currNode.Color))
                     {
+                    stopWatch.Stop();
+                    Console.WriteLine($"Time elapsed for Linear Search: {stopWatch.Elapsed} seconds.");
                         return i;
                     }
 
@@ -114,8 +118,11 @@ namespace LegoAlgorithm
 
             private void QsRec(Node<T> l, Node<T> r)
             {
-                if (l == null || r == null || l == r || l == r.NextNode)
+            var stopWatch = Stopwatch.StartNew();
+            if (l == null || r == null || l == r || l == r.NextNode)
                 {
+                    stopWatch.Stop();
+                    Console.WriteLine($"Time elapsed for Quick Sort: {stopWatch.Elapsed} seconds.");
                     return;
                 }
 
@@ -165,7 +172,8 @@ namespace LegoAlgorithm
 
             public void BubbleSort()
             {
-                if (headNode == null || headNode.NextNode == null)
+            var stopWatch = Stopwatch.StartNew();
+            if (headNode == null || headNode.NextNode == null)
                 {
                     return;
                 }
@@ -189,41 +197,46 @@ namespace LegoAlgorithm
                         currN = currN.NextNode;
                     }
                     lSortN = currN;
-                }
-                while (isSwap);
-
             }
+                while (isSwap);
+                stopWatch.Stop();
+                Console.WriteLine($"Time elapsed for Bubble Sort: {stopWatch.Elapsed} seconds.");
+
+        }
             public int BSearch(T colorBs)
             {
+                var stopWatch = Stopwatch.StartNew();
                 if (headNode == null)
-                {
+                    {
+                        return -1;
+                    }
+
+                    int l = 0; 
+                    int r = this.countNodes - 1; 
+
+                    while (l <= r)
+                    {
+                        int m = l + (r - l) / 2;
+                        Node<T> mNode = GetNodeIndex(m);
+
+                        int compareStrings = Comparer<T>.Default.Compare(colorBs, mNode.Color);
+
+                        if (compareStrings == 0)
+                        {
+                            stopWatch.Stop();
+                            Console.WriteLine($"Time elapsed for Binary Search: {stopWatch.Elapsed} seconds.");
+                            return m;
+                        }
+                        else if (compareStrings < 0)
+                        {
+                            r = m - 1; 
+                        }
+                        else
+                        {
+                            l = m + 1; 
+                        }
+                    }
                     return -1;
-                }
-
-                int l = 0; 
-                int r = this.countNodes - 1; 
-
-                while (l <= r)
-                {
-                    int m = l + (r - l) / 2;
-                    Node<T> mNode = GetNodeIndex(m);
-
-                    int compareStrings = Comparer<T>.Default.Compare(colorBs, mNode.Color);
-
-                    if (compareStrings == 0)
-                    {
-                        return m;
-                    }
-                    else if (compareStrings < 0)
-                    {
-                        r = m - 1; 
-                    }
-                    else
-                    {
-                        l = m + 1; 
-                    }
-                }
-                return -1;
             }
 
             public void TrFwd() 
