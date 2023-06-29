@@ -166,7 +166,7 @@ namespace LegoAlgorithm
             return i + 1;
         }
 
-        public bool LinearSearch(T value, int startIndex, int endIndex)
+        public int LinearSearch(T value, int startIndex, int endIndex)
         {
             var stopWatch = Stopwatch.StartNew();
             OutOfRangeIndex(startIndex);
@@ -177,16 +177,16 @@ namespace LegoAlgorithm
                 if (EqualityComparer<T>.Default.Equals(_items[i], value))
                 {
                     stopWatch.Stop();
-                    Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and FOUND the item");
-                    return true;
+                    Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and FOUND the item at index {i}");
+                    return i;
                 }
             }
             stopWatch.Stop();
             Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and DIDNT FIND the item");
-            return false;
+            return -1;
         }
 
-        public bool BinarySearch(T value, int startIndex, int endIndex, IComparer<T> comparer = null)
+        public int BinarySearch(T value, int startIndex, int endIndex, IComparer<T> comparer = null)
         {
             var stopWatch = Stopwatch.StartNew();
             OutOfRangeIndex(startIndex);
@@ -202,8 +202,8 @@ namespace LegoAlgorithm
                 if (compareResult == 0)
                 {
                     stopWatch.Stop();
-                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and FOUND the item");
-                    return true;
+                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and FOUND the item at index {middleIndex}");
+                    return middleIndex;
                 }
 
                 if (compareResult < 0)
@@ -217,7 +217,7 @@ namespace LegoAlgorithm
             }
             stopWatch.Stop();
             Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DIDNT FIND the item");
-            return false;
+            return -1;
         }
 
         public IEnumerator GetEnumerator()
