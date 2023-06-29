@@ -146,7 +146,13 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    _linkedList.BubbleSort(0, _linkedList.Count - 1);
+                    _linkedList.BubbleSort();
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add("---- RESULT BUBBLE SORT LL ----");
+                    foreach (string item in _linkedList.Check())
+                    {
+                        outputListBox.Items.Add(item);
+                    }
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
@@ -173,7 +179,13 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    _linkedList.QuickSort(0, _linkedList.Count - 1);
+                    _linkedList.QuickSort();
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add("---- RESULT QUICK SORT LL ----");
+                    foreach (string item in _linkedList.Check())
+                    {
+                        outputListBox.Items.Add(item);
+                    }
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
@@ -227,8 +239,12 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    _linkedList.BubbleSort(0, _linkedList.Count - 1);
-                    _linkedList.LinearSearch(searchChoice);
+                    _linkedList.BubbleSort();
+                    outputListBox.Items.Clear();
+                    if (_linkedList.LinearSearch(searchChoice) != 1)
+                    {
+                        outputListBox.Items.Add(searchChoice + " " + "found at Node: " + _linkedList.LinearSearch(searchChoice));
+                    };
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
@@ -255,8 +271,12 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    _linkedList.BubbleSort(0, _linkedList.Count - 1);
-                    _linkedList.BinarySearch(searchChoice);
+                    _linkedList.BubbleSort();
+                    outputListBox.Items.Clear();
+                    if (_linkedList.BinarySearch(searchChoice) != -1)
+                    {
+                        outputListBox.Items.Add(searchChoice + " " + "found at Node: " + _linkedList.BinarySearch(searchChoice));
+                    };
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {

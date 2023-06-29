@@ -302,80 +302,84 @@ namespace LegoAlgorithm
             exchanger.Color = temp;
         }
 
-        private int Partition(int startIndex, int endIndex)
+        private void QuickSortInternal(Node<T> startIndex, Node<T> endIndex)
         {
-            var pivotValue = GetNodeAt(endIndex);
-            var position = startIndex++;
-            var currentNode = GetNodeAt(startIndex);
-
-            //loop through the list
-            for (var j = startIndex; j <= endIndex - 1; j++)
+            var clock = Stopwatch.StartNew();
+            if (startIndex == null || endIndex == null || startIndex == endIndex || startIndex == endIndex.NextNode)
             {
-                //if the current node is less than the pivot value, increment the position and swap the nodes
-                if (Comparer<T>.Default.Compare(currentNode.Color, pivotValue.Color) < 0)
-                {
-                    position++;
-                    Change(GetNodeAt(position), currentNode);
-                }
-
-                currentNode = currentNode.NextNode;
+                clock.Stop();
+                Console.WriteLine($"Time elapsed for Quick Sort: {clock.Elapsed} seconds.");
+                return;
             }
 
-            //Swapping the nodes
-            Change(GetNodeAt(position + 1), GetNodeAt(endIndex));
-
-            //return the position
-            return position + 1;
+            Node<T> pivot = Partition(startIndex, endIndex);
+            QuickSortInternal(startIndex, pivot.PrevNode);
+            QuickSortInternal(pivot.NextNode, endIndex);
         }
 
 
-        public TimeSpan QuickSort(int startindex, int endIndex)
+        private Node<T> Partition(Node<T> startIndex, Node<T> endIndex)
+        {
+            Node<T> target = startIndex.PrevNode;
+            Node<T> newNode;
+            for (newNode = startIndex; newNode != endIndex; newNode = newNode.NextNode)
+            {
+                if (Comparer<T>.Default.Compare(newNode.Color, endIndex.Color) <= 0)
+                {
+                    if (target == null)
+                    {
+                        target = startIndex;
+                    }
+                    else
+                    {
+                        target = target.NextNode;
+                    }
+
+                    Change(target, newNode);
+                }
+            }
+
+            if (target == null)
+            {
+                target = startIndex;
+            }
+            else
+            {
+                target = target.NextNode;
+            }
+
+            Change(target, endIndex);
+            return target;
+        }
+
+
+        public void QuickSort()
         {
             //Create new stopwatch
             var clock = Stopwatch.StartNew();
 
-            //if the indexes are invalid, throw an exception
-            if (startindex < 0 || endIndex >= Count || startindex > endIndex)
-            {
-                throw new ArgumentOutOfRangeException("Invalid start || end index.");
-            }
-
-
             //call the method
-            QuickSortInternal(startindex, endIndex);
+            QuickSortInternal(_head, _tail);
             //end the clock
             clock.Stop();
-            return clock.Elapsed;
+            Console.WriteLine($"Time elapsed for QuickSort Search: {clock.Elapsed} seconds."); ;
         }
 
         //This is the recursive method for the quick sort
-        private void QuickSortInternal(int startIndex, int endIndex)
-        {
-            {
-                if (startIndex < endIndex)
-                {
-                    //Set the pivot index to the partition method
-                    var pivotIndex = Partition(startIndex, endIndex);
-                    //Get the pivot index and subtract 1
-                    QuickSortInternal(startIndex, pivotIndex - 1);
-                    //Get the pivot index and add 1
-                    QuickSortInternal(pivotIndex + 1, endIndex);
-                }
-            }
-        }
 
-        public TimeSpan BubbleSort(int startIndex, int endIndex)
+
+        public void BubbleSort()
         {
             //Start the clock
             var clock = Stopwatch.StartNew();
 
             bool swapped;
-            var startNode = GetNodeAt(startIndex);
-            var endNode = GetNodeAt(endIndex);
+            Node<T> startNode = _head;
+            Node<T> endNode = _tail;
 
-            if (startNode == null || endNode == null || Comparer<Node<T>>.Default.Compare(startNode, endNode) > 0)
+            if (startNode == null)
             {
-                throw new ArgumentOutOfRangeException("The start or end index is incorrect");
+                return;
             }
 
             do
@@ -397,7 +401,7 @@ namespace LegoAlgorithm
             } while (swapped);
 
             clock.Stop();
-            return clock.Elapsed;
+            Console.WriteLine($"Time elapsed for Bubble Sort LL: {clock.Elapsed} seconds.");
         }
 
         public int LinearSearch(T value)
@@ -420,7 +424,7 @@ namespace LegoAlgorithm
                 {
                     return i;
                 }
-                
+
                 currentNode = currentNode.NextNode;
                 i++;
             }
@@ -429,6 +433,7 @@ namespace LegoAlgorithm
 
         public int BinarySearch(T value)
         {
+            var sw = Stopwatch.StartNew();
             if (_head == null)
             {
                 return -1;
@@ -446,6 +451,9 @@ namespace LegoAlgorithm
 
                 if (compareStrings == 0)
                 {
+
+                    sw.Stop();
+                    Console.WriteLine($"Time elapsed for Binary Search LL: {sw.Elapsed} seconds.");
                     return m;
                 }
                 else if (compareStrings < 0)
@@ -488,6 +496,33 @@ namespace LegoAlgorithm
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public List<T> TrFwd()
+        {
+            Node<T> current = this._head;
+            List<T> list = new List<T>();
+
+            while (current != null)
+            {
+                list.Add(current.Color);
+                current = current.NextNode;
+            }
+            return list;
+
+        }
+
+        public List<T> TrBwd()
+        {
+            Node<T> current = this._tail;
+            List<T> list = new List<T>();
+
+            while (current != null)
+            {
+                list.Add(current.Color);
+                current = current.PrevNode;
+            }
+            return list;
         }
     }
 
