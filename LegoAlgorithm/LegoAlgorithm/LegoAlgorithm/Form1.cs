@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace LegoAlgorithm
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] fields = line.Split(','); 
+                        string[] fields = line.Split(',');
                         if (fields.Length >= 2)
                         {
                             InsertIntoAll(fields[1].Trim());
@@ -74,7 +75,7 @@ namespace LegoAlgorithm
         {
             BinarySearchRadio.Enabled = false;
             BinarySearchRadio.Checked = false;
-            
+
             QuickSortRadio.Enabled = false;
             BubbleSortRadio.Enabled = false;
             LinearSearchRadio.Enabled = false;
@@ -137,45 +138,78 @@ namespace LegoAlgorithm
         {
             string selectedOption = collectionChoice.SelectedItem.ToString();
 
-            if (BubbleSortRadio.Checked) 
+            if (BubbleSortRadio.Checked)
             {
                 if (selectedOption.Equals("ArrayList"))
                 {
                     _arrayList.BubbleSort(0, _arrayList.Count - 1);
-                    Console.WriteLine("Sorted colors: " + string.Join(", \n", _arrayList));
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
                     _linkedList.BubbleSort(0, _linkedList.Count - 1);
-                }else if (selectedOption.Equals("DoubleLinkedList"))
+                }
+                else if (selectedOption.Equals("DoubleLinkedList"))
                 {
                     _doubleLinkedList.BubbleSort();
-                    _doubleLinkedList.TrBwd();
-                }else
-                {
-                    MessageBox.Show("Error");
-                }
-            }
-
-            if(QuickSortRadio.Checked) {
-                if (selectedOption.Equals("ArrayList"))
-                {
-                    _arrayList.QuickSort(0, _arrayList.Count - 1);
-                    Console.WriteLine("Sorted colors: " + string.Join(", \n", _arrayList));
-                }
-                else if (selectedOption.Equals("LinkedList"))
-                {
-                    _linkedList.QuickSort(0, _linkedList.Count - 1);
-                }else if (selectedOption.Equals("DoubleLinkedList"))
-                {
-                    _doubleLinkedList.QuickSort();
-                    _doubleLinkedList.TrFwd();
+                    outputListBox.Items.Clear();
+                    outputListBox.Items.Add("---- TRAVERSAL FORWARD BUBBLE SORT ----");
+                    foreach (string item in _doubleLinkedList.TrFwd())
+                    {
+                        outputListBox.Items.Add(item);
+                    }
+                    Console.WriteLine($"Time elapsed for Bubble Sort: {_doubleLinkedList.BubbleSort()} seconds.");
                 }
                 else
                 {
                     MessageBox.Show("Error");
                 }
+            }
 
+            if (QuickSortRadio.Checked)
+            {
+                if (selectedOption.Equals("ArrayList"))
+                {
+                    _arrayList.QuickSort(0, _arrayList.Count - 1);
+                }
+                else if (selectedOption.Equals("LinkedList"))
+                {
+                    _linkedList.QuickSort(0, _linkedList.Count - 1);
+                }
+                else if (selectedOption.Equals("DoubleLinkedList"))
+                {
+                    outputListBox.Items.Clear();
+                    _doubleLinkedList.QuickSort();
+                    outputListBox.Items.Add("---- TRAVERSAL BACKWARDS QUICK SORT ----");
+                    foreach (string item in _doubleLinkedList.TrBwd())
+                    {
+                        outputListBox.Items.Add(item);
+                    }
+                    Console.WriteLine($"Time elapsed for Quick Sort: {_doubleLinkedList.QuickSort()} seconds.");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+
+            if (ForwardTraversRadio.Checked)
+            {
+                outputListBox.Items.Clear();
+                outputListBox.Items.Add("---- TRAVERSAL FORWARD ----");
+                foreach (string item in _doubleLinkedList.TrFwd())
+                {
+                    outputListBox.Items.Add(item);
+                }
+            }
+
+            if (BackwardsTraversRadio.Checked)
+            {
+                outputListBox.Items.Clear();
+                outputListBox.Items.Add("---- TRAVERSAL BACKWARDS ----");
+                foreach (string item in _doubleLinkedList.TrBwd())
+                {
+                    outputListBox.Items.Add(item);
+                }
             }
         }
 
@@ -198,8 +232,13 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
-                    _doubleLinkedList.BubbleSort();
-                    _doubleLinkedList.LinearSearch(searchChoice);
+                    _doubleLinkedList.QuickSort();
+                    outputListBox.Items.Clear();
+                    if (_doubleLinkedList.LinearSearch(searchChoice) != -1)
+                    {
+                        outputListBox.Items.Add(searchChoice + " " + "found at index: " + _doubleLinkedList.LinearSearch(searchChoice));
+                    }
+                    Console.WriteLine(_doubleLinkedList.LinearSearch(searchChoice));
                 }
                 else
                 {
@@ -222,7 +261,12 @@ namespace LegoAlgorithm
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
                     _doubleLinkedList.BubbleSort();
-                    _doubleLinkedList.BSearch(searchChoice);
+                    outputListBox.Items.Clear();
+                    if (_doubleLinkedList.BSearch(searchChoice) != -1)
+                    {
+                        outputListBox.Items.Add(searchChoice + " " + "found at index: " + _doubleLinkedList.BSearch(searchChoice));
+                    }
+                    Console.WriteLine(_doubleLinkedList.BSearch(searchChoice));
                 }
                 else
                 {
