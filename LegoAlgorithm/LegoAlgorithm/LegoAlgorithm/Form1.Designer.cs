@@ -34,7 +34,6 @@
             this.QuickSortRadio = new System.Windows.Forms.RadioButton();
             this.LinearSearchRadio = new System.Windows.Forms.RadioButton();
             this.BinarySearchRadio = new System.Windows.Forms.RadioButton();
-            this.SentinelSearchRadio = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SortBtn = new System.Windows.Forms.Button();
@@ -45,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.chosenList = new System.Windows.Forms.Label();
             this.outputListBox = new System.Windows.Forms.ListBox();
+            this.searchForTxtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -111,17 +111,6 @@
             this.BinarySearchRadio.Text = "Binary Search";
             this.BinarySearchRadio.UseVisualStyleBackColor = true;
             // 
-            // SentinelSearchRadio
-            // 
-            this.SentinelSearchRadio.AutoSize = true;
-            this.SentinelSearchRadio.Location = new System.Drawing.Point(40, 437);
-            this.SentinelSearchRadio.Name = "SentinelSearchRadio";
-            this.SentinelSearchRadio.Size = new System.Drawing.Size(122, 20);
-            this.SentinelSearchRadio.TabIndex = 19;
-            this.SentinelSearchRadio.TabStop = true;
-            this.SentinelSearchRadio.Text = "Sentinel Search";
-            this.SentinelSearchRadio.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -154,7 +143,7 @@
             // 
             // SearchBtn
             // 
-            this.SearchBtn.Location = new System.Drawing.Point(238, 411);
+            this.SearchBtn.Location = new System.Drawing.Point(235, 388);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(97, 39);
             this.SearchBtn.TabIndex = 26;
@@ -226,11 +215,19 @@
             this.outputListBox.Size = new System.Drawing.Size(496, 324);
             this.outputListBox.TabIndex = 32;
             // 
+            // searchForTxtBox
+            // 
+            this.searchForTxtBox.Location = new System.Drawing.Point(379, 396);
+            this.searchForTxtBox.Name = "searchForTxtBox";
+            this.searchForTxtBox.Size = new System.Drawing.Size(141, 22);
+            this.searchForTxtBox.TabIndex = 33;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 597);
+            this.Controls.Add(this.searchForTxtBox);
             this.Controls.Add(this.outputListBox);
             this.Controls.Add(this.chosenList);
             this.Controls.Add(this.label4);
@@ -242,7 +239,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.QuickSortRadio);
-            this.Controls.Add(this.SentinelSearchRadio);
             this.Controls.Add(this.BinarySearchRadio);
             this.Controls.Add(this.LinearSearchRadio);
             this.Controls.Add(this.BubbleSortRadio);
@@ -262,7 +258,6 @@
         private System.Windows.Forms.RadioButton QuickSortRadio;
         private System.Windows.Forms.RadioButton LinearSearchRadio;
         private System.Windows.Forms.RadioButton BinarySearchRadio;
-        private System.Windows.Forms.RadioButton SentinelSearchRadio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button SortBtn;
@@ -273,6 +268,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label chosenList;
         private System.Windows.Forms.ListBox outputListBox;
+        private System.Windows.Forms.TextBox searchForTxtBox;
     }
 }
 

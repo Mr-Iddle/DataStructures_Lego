@@ -177,12 +177,12 @@ namespace LegoAlgorithm
                 if (EqualityComparer<T>.Default.Equals(_items[i], value))
                 {
                     stopWatch.Stop();
-                    Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and found the ITEM");
+                    Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and FOUND the item");
                     return true;
                 }
             }
             stopWatch.Stop();
-            Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and didnt find the ITEM");
+            Console.WriteLine($"LinearSearch took: {stopWatch.Elapsed} seconds and DIDNT FIND the item");
             return false;
         }
 
@@ -215,7 +215,7 @@ namespace LegoAlgorithm
                     endIndex = middleIndex - 1;
                 }
             }
-            stopWatch.Start();
+            stopWatch.Stop();
             Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DIDNT find the item");
             return false;
         }

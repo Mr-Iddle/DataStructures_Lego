@@ -74,9 +74,7 @@ namespace LegoAlgorithm
         {
             BinarySearchRadio.Enabled = false;
             BinarySearchRadio.Checked = false;
-            SentinelSearchRadio.Enabled = false;
-            SentinelSearchRadio.Checked = false;
-
+            
             QuickSortRadio.Enabled = false;
             BubbleSortRadio.Enabled = false;
             LinearSearchRadio.Enabled = false;
@@ -130,7 +128,6 @@ namespace LegoAlgorithm
                 BubbleSortRadio.Enabled = true;
                 ForwardTraversRadio.Enabled = true;
                 BackwardsTraversRadio.Enabled = true;
-                SentinelSearchRadio.Enabled = true;
                 SearchBtn.Enabled = true;
                 SortBtn.Enabled = true;
             }
@@ -144,13 +141,14 @@ namespace LegoAlgorithm
             {
                 if (selectedOption.Equals("ArrayList"))
                 {
-                    //_arrayList.BubbleSort();
+                    _arrayList.BubbleSort(0, _arrayList.Count - 1);
                 }else if (selectedOption.Equals("LinkedList"))
                 {
-                    //_linkedList.BubbleSort()''
+                    _linkedList.BubbleSort(0, _linkedList.Count - 1);
                 }else if (selectedOption.Equals("DoubleLinkedList"))
                 {
                     _doubleLinkedList.BubbleSort();
+                    _doubleLinkedList.TrBwd();
                 }else
                 {
                     MessageBox.Show("Error");
@@ -160,10 +158,10 @@ namespace LegoAlgorithm
             if(QuickSortRadio.Checked) {
                 if (selectedOption.Equals("ArrayList"))
                 {
-                    //_arrayList.QuickSort();
+                    _arrayList.QuickSort(0, _arrayList.Count - 1);
                 }else if (selectedOption.Equals("LinkedList"))
                 {
-                    //_linkedList.QuickSort();
+                    _linkedList.QuickSort(0, _linkedList.Count - 1);
                 }else if (selectedOption.Equals("DoubleLinkedList"))
                 {
                     _doubleLinkedList.QuickSort();
@@ -180,20 +178,24 @@ namespace LegoAlgorithm
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             string selectedOption = collectionChoice.SelectedItem.ToString();
+            string searchChoice = searchForTxtBox.Text;
 
             if (LinearSearchRadio.Checked)
             {
                 if (selectedOption.Equals("ArrayList"))
                 {
-                    //_arrayList.LinearSearch();
+                    _arrayList.BubbleSort(0, _arrayList.Count - 1);
+                    _arrayList.LinearSearch(searchChoice, 0, _arrayList.Count - 1);
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    //_linkedList.LinearSearch();
+                    _linkedList.BubbleSort(0, _linkedList.Count - 1);
+                    _linkedList.LinearSearch(searchChoice);
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
-                    //_doubleLinkedList.LinearSearch();
+                    _doubleLinkedList.BubbleSort();
+                    _doubleLinkedList.LinearSearch(searchChoice);
                 }
                 else
                 {
@@ -201,19 +203,22 @@ namespace LegoAlgorithm
                 }
             }
 
-            if (QuickSortRadio.Checked)
+            if (BinarySearchRadio.Checked)
             {
                 if (selectedOption.Equals("ArrayList"))
                 {
-                    //_arrayList.BinarySearch();
+                    _arrayList.BubbleSort(0, _arrayList.Count - 1);
+                    _arrayList.BinarySearch(searchChoice, 0, _arrayList.Count - 1);
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    //_linkedList.BinarySearch();
+                    _linkedList.BubbleSort(0, _linkedList.Count - 1);
+                    _linkedList.BinarySearch(searchChoice);
                 }
                 else if (selectedOption.Equals("DoubleLinkedList"))
                 {
-                    //_doubleLinkedList.BSearch();
+                    _doubleLinkedList.BubbleSort();
+                    _doubleLinkedList.BSearch(searchChoice);
                 }
                 else
                 {
