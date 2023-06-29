@@ -50,7 +50,7 @@ namespace LegoAlgorithm
             }
             else
             {
-                newNode.nextNode = _head;
+                newNode.NextNode = _head;
                 _head.PrevNode = newNode;
                 _head = newNode;
             }

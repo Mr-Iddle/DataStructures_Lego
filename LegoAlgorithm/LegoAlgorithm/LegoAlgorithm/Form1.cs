@@ -140,11 +140,11 @@ namespace LegoAlgorithm
         private void SortBtn_Click(object sender, EventArgs e)
         {
             string searchColor = "Black";
-            int positionSls = _linkedList.BinarySearch(searchColor);
+            int positionBs = _doubleLinkedList.BSearch(searchColor);
 
-            if (positionSls != -1)
+            if (positionBs != -1)
             {
-                Console.WriteLine($"Position (sentinel linear search) of '{searchColor}' is {positionSls}");
+                Console.WriteLine($"Position (sentinel linear search) of '{searchColor}' is {positionBs}");
             }
             else
             {
