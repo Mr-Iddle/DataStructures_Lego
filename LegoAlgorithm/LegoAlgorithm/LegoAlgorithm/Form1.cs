@@ -155,9 +155,9 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    _linkedList.BubbleSort();
+                    var result = _linkedList.BubbleSort();
                     outputListBox.Items.Clear();
-                    outputListBox.Items.Add("---- RESULT BUBBLE SORT LL ----");
+                    outputListBox.Items.Add("---- RESULT BUBBLE SORT LL TOOK " + result + " ----");
                     foreach (string item in _linkedList.Front())
                     {
                         outputListBox.Items.Add(item);
@@ -195,9 +195,9 @@ namespace LegoAlgorithm
                 }
                 else if (selectedOption.Equals("LinkedList"))
                 {
-                    _linkedList.QuickSort();
+                    var result = _linkedList.QuickSort();
                     outputListBox.Items.Clear();
-                    outputListBox.Items.Add("---- RESULT QUICK SORT LL ----");
+                    outputListBox.Items.Add("---- RESULT QUICK SORT LL TOOK" + result + " ----");
                     foreach (string item in _linkedList.Back())
                     {
                         outputListBox.Items.Add(item);

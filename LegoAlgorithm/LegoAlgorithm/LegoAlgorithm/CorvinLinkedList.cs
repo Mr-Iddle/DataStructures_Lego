@@ -353,7 +353,7 @@ namespace LegoAlgorithm
         }
 
 
-        public void QuickSort()
+        public TimeSpan QuickSort()
         {
             //Create new stopwatch
             var clock = Stopwatch.StartNew();
@@ -362,13 +362,13 @@ namespace LegoAlgorithm
             QuickSortInternal(_head, _tail);
             //end the clock
             clock.Stop();
-            Console.WriteLine($"Time elapsed for QuickSort Search: {clock.Elapsed} seconds."); ;
+            return clock.Elapsed;
         }
 
         //This is the recursive method for the quick sort
 
 
-        public void BubbleSort()
+        public TimeSpan BubbleSort()
         {
             //Start the clock
             var clock = Stopwatch.StartNew();
@@ -379,7 +379,8 @@ namespace LegoAlgorithm
 
             if (startNode == null)
             {
-                return;
+                clock.Stop();
+                return clock.Elapsed;
             }
 
             do
@@ -401,7 +402,7 @@ namespace LegoAlgorithm
             } while (swapped);
 
             clock.Stop();
-            Console.WriteLine($"Time elapsed for Bubble Sort LL: {clock.Elapsed} seconds.");
+            return clock.Elapsed;
         }
 
         public int LinearSearch(T value)
