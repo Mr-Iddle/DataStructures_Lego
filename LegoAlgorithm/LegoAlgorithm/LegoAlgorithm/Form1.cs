@@ -15,7 +15,6 @@ namespace LegoAlgorithm
 {
     public partial class Form1 : Form
     {
-        // CsvS<string> _csv = new CsvS<string>();
         private ChrisArrayList<string> _arrayList;
         private CorvinLinkedList<string> _linkedList;
         private Dll<string> _doubleLinkedList;
@@ -23,7 +22,6 @@ namespace LegoAlgorithm
         public Form1()
         {
             InitializeComponent();
-            //_csv.NodeBuilder("C:\\Users\\Chris\\Source\\Repos\\AlgoLego2.0\\LegoAlgorithm\\LegoAlgorithm\\LegoAlgorithm\\colors.csv");
             this._arrayList = new ChrisArrayList<string>();
             this._linkedList = new CorvinLinkedList<string>();
             this._doubleLinkedList = new Dll<string>();
@@ -45,7 +43,7 @@ namespace LegoAlgorithm
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] fields = line.Split(','); //check here
+                        string[] fields = line.Split(','); 
                         if (fields.Length >= 2)
                         {
                             InsertIntoAll(fields[1].Trim());
@@ -53,21 +51,6 @@ namespace LegoAlgorithm
                         outputListBox.Items.Add(string.Join(", ", fields));
                     }
                 }
-                /*using (StreamReader sr = new StreamReader(filePath))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        string line = sr.ReadLine();
-                        values = line.Split(',');
-
-                        foreach (string data in values)
-                        {
-                            InsertIntoAll(data);
-                            
-                        }
-                        outputListBox.Items.Add(string.Join(", ", values));
-                    }
-                }*/
 
             }
         }
@@ -161,34 +144,12 @@ namespace LegoAlgorithm
 
             if (positionSls != -1)
             {
-                //$ is string inerpolation {} are bindings. String interpolation allows us to bind the variables to the string.
                 Console.WriteLine($"Position (sentinel linear search) of '{searchColor}' is {positionSls}");
             }
             else
             {
                 Console.WriteLine($"'{searchColor}' not found !");
             }
-            //do something
         }
-
-        /* private T GetCollectionType(string collectionType)
-         {
-             if (collectionType.Equals("LinkedList"))
-             {
-                 return _linkedList;
-             }
-             else if (collectionType.Equals("ArrayList"))
-             {
-                 return _arrayList;
-             }
-             else if (collectionType.Equals("BinarySearchTree"))
-             {
-                 return null;
-             }
-             else
-             {
-                 throw new InvalidOperationException("This collection wont work with this item");
-             }
-         }*/
     }
 }
