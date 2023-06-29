@@ -160,6 +160,7 @@
             this.SearchBtn.TabIndex = 26;
             this.SearchBtn.Text = "Search for:";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // ForwardTraversRadio
             // 

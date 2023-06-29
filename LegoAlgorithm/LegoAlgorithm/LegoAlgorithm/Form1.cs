@@ -68,7 +68,6 @@ namespace LegoAlgorithm
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void DefaultOptions()
@@ -139,16 +138,87 @@ namespace LegoAlgorithm
 
         private void SortBtn_Click(object sender, EventArgs e)
         {
-            string searchColor = "Black";
-            int positionBs = _doubleLinkedList.BSearch(searchColor);
+            string selectedOption = collectionChoice.SelectedItem.ToString();
 
-            if (positionBs != -1)
+            if (BubbleSortRadio.Checked) 
             {
-                Console.WriteLine($"Position (sentinel linear search) of '{searchColor}' is {positionBs}");
+                if (selectedOption.Equals("ArrayList"))
+                {
+                    //_arrayList.BubbleSort();
+                }else if (selectedOption.Equals("LinkedList"))
+                {
+                    //_linkedList.BubbleSort()''
+                }else if (selectedOption.Equals("DoubleLinkedList"))
+                {
+                    _doubleLinkedList.BubbleSort();
+                }else
+                {
+                    MessageBox.Show("Error");
+                }
             }
-            else
+
+            if(QuickSortRadio.Checked) {
+                if (selectedOption.Equals("ArrayList"))
+                {
+                    //_arrayList.QuickSort();
+                }else if (selectedOption.Equals("LinkedList"))
+                {
+                    //_linkedList.QuickSort();
+                }else if (selectedOption.Equals("DoubleLinkedList"))
+                {
+                    _doubleLinkedList.QuickSort();
+                    _doubleLinkedList.TrFwd();
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+
+            }
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            string selectedOption = collectionChoice.SelectedItem.ToString();
+
+            if (LinearSearchRadio.Checked)
             {
-                Console.WriteLine($"'{searchColor}' not found !");
+                if (selectedOption.Equals("ArrayList"))
+                {
+                    //_arrayList.LinearSearch();
+                }
+                else if (selectedOption.Equals("LinkedList"))
+                {
+                    //_linkedList.LinearSearch();
+                }
+                else if (selectedOption.Equals("DoubleLinkedList"))
+                {
+                    //_doubleLinkedList.LinearSearch();
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+
+            if (QuickSortRadio.Checked)
+            {
+                if (selectedOption.Equals("ArrayList"))
+                {
+                    //_arrayList.BinarySearch();
+                }
+                else if (selectedOption.Equals("LinkedList"))
+                {
+                    //_linkedList.BinarySearch();
+                }
+                else if (selectedOption.Equals("DoubleLinkedList"))
+                {
+                    //_doubleLinkedList.BSearch();
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
             }
         }
     }
