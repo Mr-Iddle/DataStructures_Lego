@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LegoAlgorithm
 {
-    internal class ChrisArrayList<T> : IEnumerable<T>
+    internal class ChrisArrayList<T> : IEnumerable
     {
         private T[] _items;
         private int _capacity;
@@ -202,7 +202,7 @@ namespace LegoAlgorithm
                 if (compareResult == 0)
                 {
                     stopWatch.Stop();
-                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DID find the item");
+                    Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and FOUND the item");
                     return true;
                 }
 
@@ -216,13 +216,13 @@ namespace LegoAlgorithm
                 }
             }
             stopWatch.Stop();
-            Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DIDNT find the item");
+            Console.WriteLine($"BinarySearch took: {stopWatch.Elapsed} seconds and DIDNT FIND the item");
             return false;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return _items.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

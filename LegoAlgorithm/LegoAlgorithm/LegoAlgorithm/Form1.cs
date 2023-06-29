@@ -142,7 +142,9 @@ namespace LegoAlgorithm
                 if (selectedOption.Equals("ArrayList"))
                 {
                     _arrayList.BubbleSort(0, _arrayList.Count - 1);
-                }else if (selectedOption.Equals("LinkedList"))
+                    Console.WriteLine("Sorted colors: " + string.Join(", \n", _arrayList));
+                }
+                else if (selectedOption.Equals("LinkedList"))
                 {
                     _linkedList.BubbleSort(0, _linkedList.Count - 1);
                 }else if (selectedOption.Equals("DoubleLinkedList"))
@@ -159,7 +161,9 @@ namespace LegoAlgorithm
                 if (selectedOption.Equals("ArrayList"))
                 {
                     _arrayList.QuickSort(0, _arrayList.Count - 1);
-                }else if (selectedOption.Equals("LinkedList"))
+                    Console.WriteLine("Sorted colors: " + string.Join(", \n", _arrayList));
+                }
+                else if (selectedOption.Equals("LinkedList"))
                 {
                     _linkedList.QuickSort(0, _linkedList.Count - 1);
                 }else if (selectedOption.Equals("DoubleLinkedList"))
