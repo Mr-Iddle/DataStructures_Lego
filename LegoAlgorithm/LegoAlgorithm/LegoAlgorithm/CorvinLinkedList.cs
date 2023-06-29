@@ -410,7 +410,7 @@ namespace LegoAlgorithm
             var sw = Stopwatch.StartNew();
             //get the first node from the List
             var currentNode = _head;
-            int i = 0;
+            int interval = 0;
 
             //check if the start index is valid, else return error message
             if (_head == null)
@@ -422,11 +422,11 @@ namespace LegoAlgorithm
             {
                 if (EqualityComparer<T>.Default.Equals(value, currentNode.Color)) ///ignore capital or small letters, treat it as the same
                 {
-                    return i;
+                    return interval;
                 }
 
                 currentNode = currentNode.NextNode;
-                i++;
+                interval++;
             }
             return -1;
         }
@@ -439,30 +439,30 @@ namespace LegoAlgorithm
                 return -1;
             }
 
-            int l = 0; //left
-            int r = this.Count - 1; //right
+            int start = 0; //left
+            int end = this.Count - 1; //right
 
-            while (l <= r)
+            while (start <= end)
             {
-                int m = l + (r - l) / 2;//middle
-                Node<T> mNode = GetNodeAt(m);
+                int middle = start + (end - start) / 2;//middle
+                Node<T> middleNode = GetNodeAt(middle);
 
-                int compareStrings = Comparer<T>.Default.Compare(value, mNode.Color);
+                int check = Comparer<T>.Default.Compare(value, middleNode.Color);
 
-                if (compareStrings == 0)
+                if (check == 0)
                 {
 
                     sw.Stop();
                     Console.WriteLine($"Time elapsed for Binary Search LL: {sw.Elapsed} seconds.");
-                    return m;
+                    return middle;
                 }
-                else if (compareStrings < 0)
+                else if (check < 0)
                 {
-                    r = m - 1; //left half
+                    end = middle - 1; //left half
                 }
                 else
                 {
-                    l = m + 1; //right half
+                    start = middle + 1; //right half
                 }
             }
             return -1;
@@ -498,7 +498,7 @@ namespace LegoAlgorithm
             return GetEnumerator();
         }
 
-        public List<T> TrFwd()
+        public List<T> Front()
         {
             Node<T> current = this._head;
             List<T> list = new List<T>();
@@ -512,7 +512,7 @@ namespace LegoAlgorithm
 
         }
 
-        public List<T> Check()
+        public List<T> Back()
         {
             Node<T> current = this._tail;
             List<T> list = new List<T>();
@@ -523,7 +523,9 @@ namespace LegoAlgorithm
                 current = current.PrevNode;
             }
             return list;
+
         }
+
     }
 
 

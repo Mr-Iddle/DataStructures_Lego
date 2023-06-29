@@ -26,10 +26,12 @@ namespace LegoAlgorithm
             this._arrayList = new ChrisArrayList<string>();
             this._linkedList = new CorvinLinkedList<string>();
             this._doubleLinkedList = new Dll<string>();
+            outputListBox.Items.Add("! INSERT CSV FILE !");
             DefaultOptions();
         }
         private void importCSVBtn_Click(object sender, EventArgs e)
         {
+            outputListBox.Items.Clear();
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "CSV Files (*.csv)|*.csv";
@@ -156,7 +158,7 @@ namespace LegoAlgorithm
                     _linkedList.BubbleSort();
                     outputListBox.Items.Clear();
                     outputListBox.Items.Add("---- RESULT BUBBLE SORT LL ----");
-                    foreach (string item in _linkedList.Check())
+                    foreach (string item in _linkedList.Front())
                     {
                         outputListBox.Items.Add(item);
                     }
@@ -196,7 +198,7 @@ namespace LegoAlgorithm
                     _linkedList.QuickSort();
                     outputListBox.Items.Clear();
                     outputListBox.Items.Add("---- RESULT QUICK SORT LL ----");
-                    foreach (string item in _linkedList.Check())
+                    foreach (string item in _linkedList.Back())
                     {
                         outputListBox.Items.Add(item);
                     }
